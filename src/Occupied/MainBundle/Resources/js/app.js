@@ -3,7 +3,8 @@
 angular.module('occupied', [
     'occupied.controllers',
     'occupied.directives',
-    'ui.router'
+    'ui.router',
+    'leaflet-directive'
 ])
     .config(['$interpolateProvider', function ($interpolateProvider) {
         $interpolateProvider.startSymbol('{[');
