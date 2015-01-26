@@ -37,23 +37,24 @@ assetic:
     bundles:        [ OccupiedMainBundle ]
     #java: /usr/bin/java
     filters:
-        cssrewrite: ~
+        cssrewrite:
+            apply_to: "\.css$"
     assets:
         css:
             inputs:
-                - @OccupiedMainBundle/Resources/css/main.css
-                - @OccupiedMainBundle/Resources/bower/leaflet/dist/leaflet.css
+                - bundles/occupiedmain/css/main.css
+                - bundles/occupiedmain/bower/leaflet/dist/leaflet.css
         jslibs:
             inputs:
-                - @OccupiedMainBundle/Resources/bower/angular/angular.min.js
-                - @OccupiedMainBundle/Resources/bower/angular-ui-router/release/angular-ui-router.min.js
-                - @OccupiedMainBundle/Resources/bower/leaflet/dist/leaflet.js
-                - @OccupiedMainBundle/Resources/bower/angular-leaflet-directive/dist/angular-leaflet-directive.min.js
+                - bundles/occupiedmain/bower/angular/angular.min.js
+                - bundles/occupiedmain/bower/angular-ui-router/release/angular-ui-router.min.js
+                - bundles/occupiedmain/bower/leaflet/dist/leaflet.js
+                - bundles/occupiedmain/bower/angular-leaflet-directive/dist/angular-leaflet-directive.min.js
         js:
             inputs:
-                - @OccupiedMainBundle/Resources/js/app.js
-                - @OccupiedMainBundle/Resources/js/controllers.js
-                - @OccupiedMainBundle/Resources/js/directives.js
+                - bundles/occupiedmain/js/app.js
+                - bundles/occupiedmain/js/controllers.js
+                - bundles/occupiedmain/js/directives.js
 
 # Doctrine Configuration
 doctrine:
