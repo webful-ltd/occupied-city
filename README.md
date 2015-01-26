@@ -12,6 +12,12 @@ Requirements
 * MySQL 5.5+
 * Apache 2.2.*
 
+AngularJS interpolation
+-----------------------
+Although little Twig interpolation is currently in use, to avoid confusion we give AngularJS the alternative
+interpolation brackets `{[ ... ]}`. This allows AngularJS and Twig to be used side by side, e.g. in
+`layout.html.twig`.
+
 Apache virtual host configuration
 ---------------------------------
 To use both Symfony and 'HTML5 mode' AngularJS routes (with no `#` prefix) requires an unusual vhost setup.

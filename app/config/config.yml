@@ -50,6 +50,7 @@ assetic:
             inputs:
                 - @OccupiedMainBundle/Resources/js/app.js
                 - @OccupiedMainBundle/Resources/js/controllers.js
+                - @OccupiedMainBundle/Resources/js/directives.js
 
 # Doctrine Configuration
 doctrine:

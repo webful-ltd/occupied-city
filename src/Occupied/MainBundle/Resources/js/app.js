@@ -2,8 +2,14 @@
 
 angular.module('occupied', [
     'occupied.controllers',
+    'occupied.directives',
     'ui.router'
 ])
+    .config(['$interpolateProvider', function ($interpolateProvider) {
+        $interpolateProvider.startSymbol('{[');
+        $interpolateProvider.endSymbol(']}');
+    }])
+
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('home', {
@@ -14,7 +20,8 @@ angular.module('occupied', [
             .state('about', {
                 url: '/about',
                 controller: 'AboutController',
-                templateUrl: '/partials/about.html'
+                templateUrl: '/partials/about.html',
+                data: { pageTitle: 'About' }
             });
 
         $urlRouterProvider.otherwise('/');
