@@ -46,6 +46,10 @@ assetic:
             inputs:
                 - @OccupiedMainBundle/Resources/bower/angular/angular.min.js
                 - @OccupiedMainBundle/Resources/bower/angular-ui-router/release/angular-ui-router.min.js
+        js:
+            inputs:
+                - @OccupiedMainBundle/Resources/js/app.js
+                - @OccupiedMainBundle/Resources/js/controllers.js
 
 # Doctrine Configuration
 doctrine:
