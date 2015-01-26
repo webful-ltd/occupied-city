@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Occupied City</title>
+    {% stylesheets '@css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+
+    {% javascripts '@jslibs' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+</body>
+</html>
