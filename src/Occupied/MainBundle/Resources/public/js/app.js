@@ -4,7 +4,9 @@ angular.module('occupied', [
     'occupied.controllers',
     'occupied.directives',
     'ui.router',
-    'leaflet-directive'
+    'leaflet-directive',
+    'angulartics',
+    'angulartics.google.analytics'
 ])
     .config(['$interpolateProvider', function ($interpolateProvider) {
         $interpolateProvider.startSymbol('{[');
