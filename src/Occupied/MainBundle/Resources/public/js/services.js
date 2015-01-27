@@ -88,7 +88,17 @@ angular.module('occupied.services', [])
              */
             getCity: function(city) {
                 var data = this._getAll();
+
                 return (city in data) ? data[city] : false;
+            },
+
+            getCityNames: function() {
+                var keys = [];
+                for (var key in this._getAll()) {
+                    keys.push(key);
+                }
+
+                return keys;
             }
 
         };

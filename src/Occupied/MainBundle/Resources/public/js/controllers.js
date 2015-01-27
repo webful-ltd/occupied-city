@@ -2,8 +2,9 @@
 
 angular.module('occupied.controllers', [])
 
-    .controller('HomeController', function() {
-    })
+    .controller('HomeController', ['$scope', 'CityData', function($scope, CityData) {
+        $scope.cityNames = CityData.getCityNames();
+    }])
 
     .controller('CityController', ['$scope', '$state', 'leafletData', 'CityData', function($scope, $state, leafletData, CityData) {
 
@@ -20,16 +21,17 @@ angular.module('occupied.controllers', [])
                 lat: data.lat,
                 lng: data.lng,
                 zoom: 8
-            },
-            markers: {
-                mainMarker: {
-                    lat: 51,
-                    lng: 0,
-                    focus: true,
-                    message: "Draggable marker",
-                    draggable: true
-                }
             }
+            //},
+            //markers: {
+            //    mainMarker: {
+            //        lat: 51,
+            //        lng: 0,
+            //        focus: true,
+            //        message: "Draggable marker",
+            //        draggable: true
+            //    }
+            //}
 
         });
     }])

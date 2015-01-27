@@ -3,5 +3,7 @@
 <p>How would your life be affected by occupation? Choose a city to explore an alternative reality.</p>
 
 <ul>
-    <li><a ui-sref="city({city: 'London'})">London</a></li>
+    <li ng-repeat="cityName in cityNames | orderBy: cityName">
+        <a ui-sref="city({city: cityName})">{[ cityName ]}</a>
+    </li>
 </ul>
