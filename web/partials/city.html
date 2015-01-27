@@ -7,7 +7,7 @@
 </div>
 
 <div ng-repeat="event in events">
-    <p class="virtual event" compile="event.virtual | interpolate : city"></p>
+    <p ng-if="event.virtual" class="virtual event" compile="event.virtual | interpolate : city"></p>
     <p ng-if="event.history" class="history event" compile="event.history | interpolate : city"></p>
 </div>
 

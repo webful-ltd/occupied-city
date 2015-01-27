@@ -199,7 +199,7 @@ angular.module('occupied.services', [])
                                 'from that offered to the occupiers\' children. Human rights agencies note that although ' +
                                 'a quarter of the children educated in the occupier\'s area are {city} citizens, they are typically ' +
                                 'segragated and educated separately in schools with worse conditions.',
-                                'history': '"Israel systematically discriminates against Palestinian Arab citizens in its public school system" ' +
+                                'history': '"Israel systematically discriminates against Palestinian Arab citizens in its public school system". ' +
                                     '<a class="source" external href="http://www.hrw.org/news/2001/12/04/israeli-schools-separate-not-equal">Human Rights Watch</a>'
                             }
                         ],
@@ -214,9 +214,9 @@ angular.module('occupied.services', [])
                                 'are calling it a security fence. Most {city} natives are referring to it as the racist apartheid ' +
                                 'wall. The planned area will take more land from inside {city}\'s current borders, and will ' +
                                 'encompass illegal settlements under the guise of security.',
-                                'history': '"The fence/wall, in its present configuration, violates Israel’s obligations under international humanitarian law" ' +
-                                '<a class="source" external href="http://unispal.un.org/unispal.nsf/35a3b6b85ffcfa2f8525718b0058040c/8749dfdc1b131abd85256f20006ee486?OpenDocument">Amnesty International, 2004</a>. ' +
-                                '"The Expansion and Annexation Wall absorbed about 12% of West Bank land" ' +
+                                'history': '"The fence/wall, in its present configuration, violates Israel’s obligations under international humanitarian law". ' +
+                                '<a class="source" external href="http://unispal.un.org/unispal.nsf/35a3b6b85ffcfa2f8525718b0058040c/8749dfdc1b131abd85256f20006ee486?OpenDocument">Amnesty International, 2004</a> ' +
+                                '<br>"The Expansion and Annexation Wall absorbed about 12% of West Bank land". ' +
                                 '<a class="source" external href="http://www.pcbs.gov.ps/site/512/default.aspx?tabID=512&lang=en&ItemID=788&mid=3171&wversion=Staging">PCBS</a>'
                             }
                         ],
@@ -231,7 +231,7 @@ angular.module('occupied.services', [])
                                 'while still collecting tax from citizens, sending the city into financial chaos and threatening all ' +
                                 'public services. Nobody knows when revenues will resume.',
                                 'history': 'Israel froze Palestinian tax revenues in 2011 after Palestine was admitted as a member ' +
-                                'of UN cultural agency UNESCO. It was widely acknowledged as a humanitarian risk ' +
+                                'of UN cultural agency UNESCO. It was widely acknowledged as a humanitarian risk. ' +
                                 '<a class="source" external href="http://www.maannews.net/eng/ViewDetails.aspx?ID=439273">Source</a>'
                             }
                         ],
@@ -259,7 +259,7 @@ angular.module('occupied.services', [])
                         year: 2014,
                         events: [
                             {
-                                'virtual': 'The occupiers have decided to withold tax revenues from {city} again &ndash; this time as' +
+                                'virtual': 'The occupiers have decided to withold tax revenues from {city} again &ndash; this time as ' +
                                 'a result of a bid to attain the legal standing to challenge the occupation\'s injustices internationally.',
                                 'history': 'Palestinian tax was frozen (again) in January 2015 after the Palestinian government decided ' +
                                 'to join the International Criminal Court ' +
@@ -278,19 +278,21 @@ angular.module('occupied.services', [])
                                 'under administrative detention. Each such detention can be renewed at the last second based on only ' +
                                 'secret \'evidence\', amounting to indefinite incarceration without trial. The people of {city} are accused ' +
                                 'of crimes for which they are tried for in a language they cannot speak. These actions are condemned by ' +
-                                'some internationally &nash; but the occupier maintains overwhelming financial support.',
+                                'some internationally &ndash; but the occupier maintains overwhelming financial support.',
                                 'history': 'As of October 2014 there were around 500 Palestinian administrative detainees. Administrative ' +
                                 'detentions each last 6 months but can run consecutively with no actual charges brought against the prisoner. ' +
                                 '<a class="source" external href="http://www.addameer.org/etemplate.php?id=729">Addameer</a>'
                             },
                             {
-                                'virtual': 'Over {{population:5000000}} modern day refugees are living in areas surrounding {city}. They ' +
+                                'virtual': 'Over {population|5000000} modern day refugees are living in areas surrounding {city}. They ' +
                                 'have their own dedicated United Nations agency.',
                                 'history': 'Palestinians number over 5 million refugees today. UNRWA is the UN organisation responsible for ' +
                                 'monitoring them. <a class="source" external href="http://www.unrwa.org/palestine-refugees">UNRWA</a>'
                             },
-                            'Refugees represent 70% of the {city} inhabitants in the world today. ' +
-                            '<a class="source" external href="http://www.key1948.org/about-us/history-of-palestinian-refugees/">Source</a>'
+                            {
+                                'history': 'Refugees represent 70% of the Palestinians in the world today. ' +
+                                '<a class="source" external href="http://www.key1948.org/about-us/history-of-palestinian-refugees/">Source</a>'
+                            }
                         ],
                         settlers: 515000, // 2013 estimate - http://www.btselem.org/settlements/statistics
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
