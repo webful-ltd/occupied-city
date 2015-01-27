@@ -6,7 +6,7 @@ angular.module('occupied.controllers', [])
         $scope.cityNames = CityData.getCityNames();
     }])
 
-    .controller('CityController', ['$scope', '$state', 'leafletData', 'CityData', function($scope, $state, leafletData, CityData) {
+    .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', function($scope, $state, $filter, leafletData, CityData) {
 
         var data = CityData.getCity($state.params['city']);
 
@@ -16,23 +16,24 @@ angular.module('occupied.controllers', [])
 
         $state.current.data = {'pageTitle': $state.params['city']};
 
+        var circleRadius = Math.sqrt(data.area / Math.PI) * 1000; // in m
+
         angular.extend($scope, {
             center: {
                 lat: data.lat,
                 lng: data.lng,
                 zoom: 10
+            },
+            paths: {
+                circle: {
+                    type: 'circle',
+                    radius: circleRadius,
+                    latlngs: {lat: data.lat, lng: data.lng},
+                    message: '<h3>An approximation of ' + $state.params['city'] + '!</h3>' +
+                        '<p>For now we\'re just using a circle with its area of ' + $filter('number')(data.area) +
+                        'km².</p>'
+                }
             }
-            //},
-            //markers: {
-            //    mainMarker: {
-            //        lat: 51,
-            //        lng: 0,
-            //        focus: true,
-            //        message: "Draggable marker",
-            //        draggable: true
-            //    }
-            //}
-
         });
     }])
 
