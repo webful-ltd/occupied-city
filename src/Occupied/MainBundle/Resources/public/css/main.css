@@ -78,7 +78,8 @@ button.next {
 a.source {
     font-family: monospace;
     background: #050;
-    padding: 4px 2px;
+    margin: 0 5px;
+    padding: 4px;
     border: solid 1px #090;
     color: #ccc;
 }
