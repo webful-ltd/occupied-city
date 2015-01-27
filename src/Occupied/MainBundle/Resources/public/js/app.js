@@ -3,11 +3,13 @@
 angular.module('occupied', [
     'occupied.controllers',
     'occupied.directives',
+    'occupied.filters',
     'occupied.services',
     'ui.router',
     'leaflet-directive',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    'ngSanitize'
 ])
     .config(['$interpolateProvider', function ($interpolateProvider) {
         $interpolateProvider.startSymbol('{[');

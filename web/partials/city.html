@@ -1,24 +1,26 @@
-<p>Welcome to Universe B, an alternative reality where {[ city ]} is going to become less fortunate. We'll start today and
-    use the current population of ~{[ originalPopulation|number ]}.</p>
+<p>Welcome to Universe B, an alternative reality where {[ ::city.name ]} is going to become less fortunate. We'll start today and
+    use the current population of ~{[ ::city.population | number ]}.</p>
 
+<div class="vitals">
 <h4>{[ dayHeading ]}</h4>
-<p>Local population: <strong>{[ population|number ]}</strong></p>
+<p>Local population: <strong>{[ population | number ]}</strong></p>
+</div>
 
 <div ng-repeat="event in events">
-    <p class="virtual event">{[ event.virtual ]}</p>
-    <p ng-if="history" class="history event">{[ event.history ]}</p>
+    <p class="virtual event" ng-bind-html="event.virtual | interpolate : city"></p>
+    <p ng-if="event.history" class="history event" ng-bind-html="event.history | interpolate : city"></p>
 </div>
 
 <div>
-<button class="back" ng-click="back()">&lt;</button>
-<button class="next" ng-click="progress()">&gt;&gt;</button>
+    <button class="back" ng-click="back()">&lt;</button>
+    <button class="next" ng-click="progress()">&gt;&gt;</button>
 </div>
 
 <leaflet defaults="defaults" center="center" markers="markers" paths="paths" height="480px" width="640px"></leaflet>
 
 <ul class="notes">
-    <li>When talking about {[ city ]} we use areas and population numbers in proportion to 1940s Palestine. We try
-    make {[ thisYear ]} {[ city ]} analogous to 1946 Palestine.</li>
+    <li>When talking about {[ ::city.name ]} we use areas and population numbers in proportion to 1940s Palestine. We try
+    make {[ ::thisYear ]} {[ ::city.name ]} analogous to 1946 Palestine.</li>
     <li>To simplify area calculations we mostly just consider the West Bank, taken to be 5,860km².</li>
     <li>Estimated numbers of settlements include unofficial 'outposts'.</li>
 </ul>

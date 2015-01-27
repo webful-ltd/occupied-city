@@ -52,11 +52,13 @@ assetic:
                 - bundles/occupiedmain/bower/angular-leaflet-directive/dist/angular-leaflet-directive.min.js
                 - bundles/occupiedmain/bower/angulartics/dist/angulartics.min.js
                 - bundles/occupiedmain/bower/angulartics/dist/angulartics-ga.min.js
+                - bundles/occupiedmain/bower/angular-sanitize/angular-sanitize.min.js
         js:
             inputs:
                 - bundles/occupiedmain/js/app.js
                 - bundles/occupiedmain/js/controllers.js
                 - bundles/occupiedmain/js/directives.js
+                - bundles/occupiedmain/js/filters.js
                 - bundles/occupiedmain/js/services.js
 
 # Doctrine Configuration

@@ -40,9 +40,8 @@ angular.module('occupied.controllers', [])
 
         $scope.update();
 
-        $scope.city = $state.params['city'];
-
-
+        data['name'] = $state.params['city'];
+        $scope.city = data;
         $state.current.data = {'pageTitle': $state.params['city']};
 
         var circleRadius = Math.sqrt(data.area / Math.PI) * 1000; // in m
