@@ -4,6 +4,21 @@
 <h4>{[ dayHeading ]}</h4>
 <p>Local population: <strong>{[ population|number ]}</strong></p>
 
+<div ng-repeat="event in events">
+    <p class="virtual event">{[ event.virtual ]}</p>
+    <p ng-if="history" class="history event">{[ event.history ]}</p>
+</div>
+
+<div>
+<button class="back" ng-click="back()">&lt;</button>
 <button class="next" ng-click="progress()">&gt;&gt;</button>
+</div>
 
 <leaflet defaults="defaults" center="center" markers="markers" paths="paths" height="480px" width="640px"></leaflet>
+
+<ul class="notes">
+    <li>When talking about {[ city ]} we use areas and population numbers in proportion to 1940s Palestine. We try
+    make {[ thisYear ]} {[ city ]} analogous to 1946 Palestine.</li>
+    <li>To simplify area calculations we mostly just consider the West Bank, taken to be 5,860km².</li>
+    <li>Estimated numbers of settlements include unofficial 'outposts'.</li>
+</ul>

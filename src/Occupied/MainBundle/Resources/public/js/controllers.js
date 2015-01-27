@@ -14,17 +14,31 @@ angular.module('occupied.controllers', [])
             $state.go('home');
         }
 
-        $scope.population = $scope.originalPopulation = data.population;
-
+        $scope.thisYear = (new Date()).getFullYear();
         $scope.historyIndex = 0;
         var history = HistoryData.get();
-        $scope.dayHeading = history[0]['label'];
+        $scope.originalPopulation = history[0]['population'];
+        $scope.originalArea = 5860; // km^2 - https://www.cia.gov/library/publications/the-world-factbook/geos/we.html
+            // N.B. historical Palestine is more like 26,000 - http://www.plands.org/articles/004.html
+
+        $scope.update = function() {
+            var current = history[$scope.historyIndex];
+            $scope.dayHeading = $scope.thisYear + current['year'] - 1946;
+            $scope.population = $scope.originalPopulation * current['populationPercentage'] / 100;
+            $scope.events = current['events'];
+        };
 
         $scope.progress = function() {
             $scope.historyIndex++;
-            $scope.dayHeading = HistoryData.get()[$scope.historyIndex]['label'];
-            $scope.population = $scope.originalPopulation * history[$scope.historyIndex]['populationPercentage'] / 100;
+            $scope.update();
         };
+
+        $scope.back = function() {
+            $scope.historyIndex--;
+            $scope.update();
+        };
+
+        $scope.update();
 
         $scope.city = $state.params['city'];
 
