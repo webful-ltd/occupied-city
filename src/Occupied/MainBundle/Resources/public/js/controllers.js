@@ -20,7 +20,7 @@ angular.module('occupied.controllers', [])
             center: {
                 lat: data.lat,
                 lng: data.lng,
-                zoom: 8
+                zoom: 10
             }
             //},
             //markers: {
