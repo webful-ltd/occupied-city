@@ -8,8 +8,7 @@ angular.module('occupied', [
     'ui.router',
     'leaflet-directive',
     'angulartics',
-    'angulartics.google.analytics',
-    'ngSanitize'
+    'angulartics.google.analytics'
 ])
     .config(['$interpolateProvider', function ($interpolateProvider) {
         $interpolateProvider.startSymbol('{[');
