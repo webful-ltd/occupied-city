@@ -7,8 +7,8 @@
 </div>
 
 <div ng-repeat="event in events">
-    <p class="virtual event" ng-bind-html="event.virtual | interpolate : city"></p>
-    <p ng-if="event.history" class="history event" ng-bind-html="event.history | interpolate : city"></p>
+    <p class="virtual event" compile="event.virtual | interpolate : city"></p>
+    <p ng-if="event.history" class="history event" compile="event.history | interpolate : city"></p>
 </div>
 
 <div>
