@@ -15,6 +15,7 @@ a {
 
 #menu {
     padding: 8px;
+    background: #fff;
 }
 
 #menu li {
@@ -23,7 +24,8 @@ a {
 }
 
 #menu li a {
-    color: #fff;
+    color: #000;
+    font-family: monospace;
 }
 
 h1 {
@@ -34,12 +36,22 @@ h1 {
     font-family: monospace;
 }
 
+.vitals {
+    font-family: monospace;
+}
+
 h2 {
     padding: 8px;
 }
 
 h2, h3, h4 {
+    font-family: monospace;
     color: #ddd;
+}
+
+h4 {
+    font-size: 200%;
+    margin: 0;
 }
 
 button.next {
@@ -50,7 +62,7 @@ button.next {
 
 .event {
     color: #000;
-    border: solid 1px #f00;
+    border: solid 1px #999;
     font-size: 110%;
     padding: 10px;
 }
@@ -60,12 +72,20 @@ button.next {
 }
 
 .event.history {
-    background: #f88;
+    background: #dfd;
+}
+
+a.source {
+    font-family: monospace;
+    background: #050;
+    padding: 4px 2px;
+    border: solid 1px #090;
+    color: #ccc;
 }
 
 .notes {
     font-size: 90%;
-    border: solid 1px #000;
+    border: solid 1px #999;
     padding: 5px 5px 5px 20px;
-    background: #eee;
+    background: #333;
 }
