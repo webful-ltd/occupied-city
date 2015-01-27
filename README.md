@@ -10,6 +10,13 @@ Will consider tracking these on Github if we proceed to open source this after t
 now here's a temporary list:
 
   1. Need initial AngularJS tests
+  2. Cities should be drawn with something close to their actual outlines if at all possible
+
+Mapping
+-------
+We currently use [Leaflet](http://leafletjs.com/) for maps with
+[angular-leaflet-directive](https://github.com/tombatossals/angular-leaflet-directive). Tiles come from the default
+provider, OpenStreetMap.
 
 Dependencies
 ------------
