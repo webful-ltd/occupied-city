@@ -107,9 +107,33 @@ angular.module('occupied.services', [])
     .factory('HistoryData', function() {
         return {
             get: function() {
-                return {
-                    // TODO! - need to decide if keying on year, on stage, on something else
-                }
+                return [
+                    {
+                        label: 'Day One',
+                        events: [
+                            '{city} comes under the auspices of a new, external governing force not fully understood by' +
+                            'its residents. You are issued a new passport. It doesn\'t look like your old one.'
+                        ],
+                        populationPercentage: 100,
+                        settlers: 0,
+                        occupiedSpace: 0 // km^2
+                    },
+                    {
+                        label: '1947',
+                        events: [
+                            'A new power has begun claiming huge amounts of land in {city} and displacing residents.' +
+                            'Some of your neighbouring boroughs made noises like they were going to help you out, but' +
+                            'it doesn\'t seem to have worked so well. {city} doesn\'t have an army and the newcomers' +
+                            'have been well supplied by their friends internationally.'
+                        ],
+                        populationPercentage: 100,
+                        settlers: 0,
+                        occupiedSpace: 0 // todo
+                    },
+                    {
+                        label: '1948'
+                    }
+                ]
             }
         }
     })

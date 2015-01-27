@@ -1,3 +1,9 @@
 body {
     background: lightgrey;
 }
+
+button.next {
+    border: solid 2px #090;
+    background: #9f9;
+    font-size: 300%;
+}
