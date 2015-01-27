@@ -20,11 +20,22 @@ angular.module('occupied', [
                 controller: 'HomeController',
                 templateUrl: '/partials/home.html'
             })
+            .state('contact', {
+                url: '/contact',
+                controller: 'ContactController',
+                templateUrl: '/partials/contact.html',
+                data: { pageTitle: 'Contact Us' }
+            })
             .state('about', {
                 url: '/about',
                 controller: 'AboutController',
                 templateUrl: '/partials/about.html',
                 data: { pageTitle: 'About' }
+            })
+            .state('city', {
+                url: '/:city',
+                controller: 'CityController',
+                templateUrl: '/partials/city.html'
             });
 
         $urlRouterProvider.otherwise('/');
