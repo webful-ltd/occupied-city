@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('occupied.services', [])
+
+    .value('basePopulation', 1810037) // 1946 total, http://www.jewishvirtuallibrary.org/jsource/Society_&_Culture/israel_palestine_pop.html
+
     .factory('CityData', function() {
         return {
             /**
@@ -104,7 +107,7 @@ angular.module('occupied.services', [])
         };
     })
 
-    .factory('HistoryData', function() {
+    .factory('HistoryData', ['basePopulation', function(basePopulation) {
         return {
             get: function() {
                 return [
@@ -116,7 +119,7 @@ angular.module('occupied.services', [])
                                 'its residents. You are issued a new passport. It doesn\'t look like your old one.'
                             }
                         ],
-                        population: 1810037 // 1946 total, http://www.jewishvirtuallibrary.org/jsource/Society_&_Culture/israel_palestine_pop.html
+                        population: basePopulation
                     },
                     {
                         year: 1947,
@@ -296,5 +299,5 @@ angular.module('occupied.services', [])
                 ]
             }
         }
-    })
+    }])
 ;
