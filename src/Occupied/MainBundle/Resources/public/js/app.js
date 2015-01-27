@@ -3,6 +3,7 @@
 angular.module('occupied', [
     'occupied.controllers',
     'occupied.directives',
+    'occupied.services',
     'ui.router',
     'leaflet-directive',
     'angulartics',

@@ -57,6 +57,7 @@ assetic:
                 - bundles/occupiedmain/js/app.js
                 - bundles/occupiedmain/js/controllers.js
                 - bundles/occupiedmain/js/directives.js
+                - bundles/occupiedmain/js/services.js
 
 # Doctrine Configuration
 doctrine:
