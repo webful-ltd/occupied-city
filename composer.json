@@ -1,8 +1,15 @@
 {
-    "name": "noellh/occupied-city",
-    "license": "proprietary",
+    "name": "webful/occupied-city",
+    "license": "MIT",
     "type": "project",
     "description": "Occupied City",
+    "homepage": "http://occupied.city",
+    "authors": [
+        {
+            "name": "Noel Light-Hilary",
+            "homepage": "http://noellh.com"
+        }
+    ],
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },

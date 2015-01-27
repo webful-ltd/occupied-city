@@ -1,16 +1,15 @@
 Occupied City
 =============
-This is the codebase for occupied.city. It uses Symfony 2.6 on the server side and AngularJS 1.3 for the client.
+This is the codebase for Occupied City. It uses Symfony 2.6 on the server side and AngularJS 1.3 for the client.
 For now the server mostly just organises static resources and the site is largely an Angular app - we don't
 yet make serious use of Symfony or use the database.
 
+The site lives at **[occupied.city](http://occupied.city)** and is released as
+[open source](https://github.com/WebfulLtd/occupied-city) under the MIT Licence.
+
 Issues
 ------
-Will consider tracking these on Github if we proceed to open source this after the intial prototype is built. For
-now here's a temporary list:
-
-  1. Need initial AngularJS tests
-  2. Cities should be drawn with something close to their actual outlines if at all possible
+Issues are [tracked on GitHub](https://github.com/WebfulLtd/occupied-city/issues).
 
 Mapping
 -------
