@@ -27,6 +27,10 @@ Requirements
 * MySQL 5.5+
 * Apache 2.2.*
 
+Tests
+-----
+Run PHP tests with `./test/phpunit.sh`.
+
 AngularJS interpolation
 -----------------------
 Although little Twig interpolation is currently in use, to avoid confusion we give AngularJS the alternative
