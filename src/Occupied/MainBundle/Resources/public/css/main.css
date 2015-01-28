@@ -90,3 +90,7 @@ a.source {
     padding: 5px 5px 5px 20px;
     background: #333;
 }
+
+.leaflet-popup-content, .leaflet-popup-content h3 {
+    color: #000;
+}
