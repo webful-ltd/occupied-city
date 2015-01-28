@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('occupied.filters', [])
+angular.module('occupied.filters', ['occupied.services'])
 
     .filter('interpolate', ['$filter', 'basePopulation', function($filter, basePopulation) {
         return function(text, city) {
