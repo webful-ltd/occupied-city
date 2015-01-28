@@ -17,6 +17,12 @@ We currently use [Leaflet](http://leafletjs.com/) for maps with
 [angular-leaflet-directive](https://github.com/tombatossals/angular-leaflet-directive). Tiles come from the default
 provider, OpenStreetMap.
 
+### City outlines
+We're using [Flickr Shapefiles](http://code.flickr.net/2011/01/08/flickr-shapefiles-public-dataset-2-0/) locality data
+to produce approximate outlines for each included city. Currently the coordinates are manually copy/pasted from their
+ geojson file and included in our service data. Cities without a `coords` key will use their area and draw a circle
+ instead of the real city shape.
+
 Dependencies
 ------------
 Server dependencies are managed with Composer and client libraries with Bower.
