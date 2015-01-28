@@ -3,6 +3,8 @@
 angular.module('occupied.services', [])
 
     .value('basePopulation', 1810037) // 1946 total, http://www.jewishvirtuallibrary.org/jsource/Society_&_Culture/israel_palestine_pop.html
+    .value('baseArea', 5860)// km^2, West Bank - https://www.cia.gov/library/publications/the-world-factbook/geos/we.html
+        // N.B. all of historical Palestine is more like 26,000km^2 - http://www.plands.org/articles/004.html
 
     .factory('CityData', function() {
         return {
@@ -233,6 +235,12 @@ angular.module('occupied.services', [])
                                 'history': 'Israel froze Palestinian tax revenues in 2011 after Palestine was admitted as a member ' +
                                 'of UN cultural agency UNESCO. It was widely acknowledged as a humanitarian risk. ' +
                                 '<a class="source" external href="http://www.maannews.net/eng/ViewDetails.aspx?ID=439273">Source</a>'
+                            },
+                            {
+                                'virtual': 'Settlers now control {area|2399.824} of the land in the original {city}, out of a total area of {area|5860}.',
+                                'history': 'By 2009, settler controlled areas of Palestine totalled an estimated 2,399.8 km² ' +
+                                'of land within Palestine. ' +
+                                '<a class="source" external href="http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf">Source</a>'
                             }
                         ],
                         settlers: 4900000, // 2009 estimate - http://www.hrw.org/en/node/95059/section/5

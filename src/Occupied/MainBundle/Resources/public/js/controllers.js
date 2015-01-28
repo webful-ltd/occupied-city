@@ -6,7 +6,7 @@ angular.module('occupied.controllers', [])
         $scope.cityNames = CityData.getCityNames();
     }])
 
-    .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', 'HistoryData', function($scope, $state, $filter, leafletData, CityData, HistoryData) {
+    .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', 'HistoryData', 'baseArea', function($scope, $state, $filter, leafletData, CityData, HistoryData, baseArea) {
 
         var data = CityData.getCity($state.params['city']);
 
@@ -18,8 +18,7 @@ angular.module('occupied.controllers', [])
         $scope.historyIndex = 0;
         var history = HistoryData.get();
         $scope.originalPopulation = history[0]['population'];
-        $scope.originalArea = 5860; // km^2 - https://www.cia.gov/library/publications/the-world-factbook/geos/we.html
-            // N.B. historical Palestine is more like 26,000 - http://www.plands.org/articles/004.html
+        $scope.originalArea = baseArea;
 
         $scope.update = function() {
             var current = history[$scope.historyIndex];
