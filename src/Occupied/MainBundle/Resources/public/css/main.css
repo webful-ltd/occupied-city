@@ -94,3 +94,27 @@ a.source {
 .leaflet-popup-content, .leaflet-popup-content h3 {
     color: #000;
 }
+
+#footer {
+    padding: 8px;
+    font-size: 70%;
+    font-family: monospace;
+}
+
+#credits {
+    margin: 0;
+    padding: 0;
+}
+
+#credits li {
+    display: inline;
+    margin-right: 0 4px;
+}
+
+#credits li:before {
+    content: " | ";
+}
+
+#credits li:first-child:before {
+    content: none;
+}
