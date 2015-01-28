@@ -31,6 +31,8 @@ Tests
 -----
 Run PHP tests with `./test/phpunit.sh`.
 
+Run Karma tests by installing Karma 0.12.* and running `./test/karma.sh`.
+
 AngularJS interpolation
 -----------------------
 Although little Twig interpolation is currently in use, to avoid confusion we give AngularJS the alternative
