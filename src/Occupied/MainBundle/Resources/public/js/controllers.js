@@ -6,10 +6,8 @@ angular.module('occupied.controllers', [])
         $scope.cityNames = CityData.getCityNames();
     }])
 
-    .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', 'HistoryData', 'baseArea', function($scope, $state, $filter, leafletData, CityData, HistoryData, baseArea) {
-
+    .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', 'HistoryData', 'MapHelper', 'baseArea', function($scope, $state, $filter, leafletData, CityData, HistoryData, MapHelper, baseArea) {
         var city = CityData.getCity($state.params['city']);
-
         if (city === false) {
             $state.go('home');
         }
@@ -43,59 +41,8 @@ angular.module('occupied.controllers', [])
         $scope.city = city;
         $state.current.data = {'pageTitle': $state.params['city']};
 
-        var circleRadius = Math.sqrt(city.area / Math.PI) * 1000; // in m
-
-        var geojson = {};
-        var paths = {};
-
-        if ('coords' in city) {
-            geojson = {
-                data: {
-                    "type": "FeatureCollection",
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "properties": {"name": city.name},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": city['coords']
-                            }
-                        }
-                    ]
-                },
-                style: {
-                    fillColor: '#9f9',
-                    weight: 2,
-                    opacity: 1,
-                    color: '#fff',
-                    dashArray: '3',
-                    fillOpacity: 0.7
-                }
-            }
-        } else {
-            paths = {
-                circle: {
-                    type: 'circle',
-                    weight: 2,
-                    color: '#9f9',
-                    radius: circleRadius,
-                    latlngs: {lat: city.lat, lng: city.lng},
-                    message: '<h3>An approximation of ' + $state.params['city'] + '!</h3>' +
-                    '<p>For now we\'re just using a circle with its area of ' + $filter('number')(city.area) +
-                    'km².</p>'
-                }
-            }
-        }
-
-        angular.extend($scope, {
-            center: {
-                lat: city.lat,
-                lng: city.lng,
-                zoom: Math.round(11 - Math.sqrt(city.area) / 20)
-            },
-            paths: paths,
-            geojson: geojson
-        });
+        // Add all the city-specific mapping pieces: centre position and circle/outline overlay
+        angular.extend($scope, MapHelper.buildLeafletData(city));
     }])
 
     .controller('AboutController', function() {

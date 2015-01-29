@@ -312,4 +312,70 @@ angular.module('occupied.services', [])
             }
         }
     }])
+
+    .factory('MapHelper', ['$filter', function($filter) {
+        return {
+            /**
+             * Takes a city object and returns an object with 'center', 'paths' and 'geojson' keys suitable for using
+             * directly with Leaflet directive
+             *
+             * @param {object} city Should have keys 'name', 'lat', 'lng', 'area' and optionally 'coords'
+             * @returns {{center: {lat: *, lng: *, zoom: number}, paths: {}, geojson: {}}}
+             */
+            buildLeafletData: function(city) {
+                var geojson = {};
+                var paths = {};
+                var circleRadius = Math.sqrt(city.area / Math.PI) * 1000; // in m
+
+                if ('coords' in city) {
+                    geojson = {
+                        data: {
+                            "type": "FeatureCollection",
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": city.name},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": city['coords']
+                                    }
+                                }
+                            ]
+                        },
+                        style: {
+                            fillColor: '#9f9',
+                            weight: 2,
+                            opacity: 1,
+                            color: '#fff',
+                            dashArray: '3',
+                            fillOpacity: 0.7
+                        }
+                    }
+                } else {
+                    paths = {
+                        circle: {
+                            type: 'circle',
+                            weight: 2,
+                            color: '#9f9',
+                            radius: circleRadius,
+                            latlngs: {lat: city.lat, lng: city.lng},
+                            message: '<h3>An approximation of ' + city.name + '!</h3>' +
+                            '<p>For now we\'re just using a circle with its area of ' + $filter('number')(city.area) +
+                            'km².</p>'
+                        }
+                    }
+                }
+
+                return {
+                    center: {
+                        lat: city.lat,
+                        lng: city.lng,
+                        zoom: Math.round(11 - Math.sqrt(city.area) / 20)
+                    },
+                    paths: paths,
+                    geojson: geojson
+                }
+            }
+        }
+    }])
 ;
