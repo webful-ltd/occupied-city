@@ -104,13 +104,25 @@ angular.module('occupied.services', [])
             getCity: function(city) {
                 var data = this._getAll();
 
-                return (city in data) ? data[city] : false;
+                for (var cityName in data) {
+                    if (data.hasOwnProperty(cityName) && cityName.toLowerCase() === city.toLowerCase()) {
+                        var fullCity = data[cityName];
+                        fullCity.name = cityName;
+
+                        return fullCity;
+                    }
+                }
+
+                return false;
             },
 
             getCityNames: function() {
                 var keys = [];
-                for (var key in this._getAll()) {
-                    keys.push(key);
+                var data = this._getAll();
+                for (var key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        keys.push(key);
+                    }
                 }
 
                 return keys;

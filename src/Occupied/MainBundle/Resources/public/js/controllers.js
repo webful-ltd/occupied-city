@@ -10,6 +10,13 @@ angular.module('occupied.controllers', [])
         var city = CityData.getCity($state.params['city']);
         if (city === false) {
             $state.go('home');
+            return;
+        }
+
+        // If the case was wrong, redirect so we have consistent URLs for sharing
+        if (city.name !== $state.params['city']) {
+            $state.go('city', {city: city.name});
+            return;
         }
 
         $scope.thisYear = (new Date()).getFullYear();
@@ -37,7 +44,6 @@ angular.module('occupied.controllers', [])
 
         $scope.update();
 
-        city['name'] = $state.params['city'];
         $scope.city = city;
         $state.current.data = {'pageTitle': $state.params['city']};
 
