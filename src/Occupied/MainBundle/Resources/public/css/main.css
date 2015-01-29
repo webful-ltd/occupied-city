@@ -14,8 +14,9 @@ a {
 }
 
 #menu {
+    margin: 0;
     padding: 8px;
-    background: #fff;
+    background: #bbb;
 }
 
 #menu li {
@@ -108,7 +109,7 @@ a.source {
 
 #credits li {
     display: inline;
-    margin-right: 0 4px;
+    margin: 0;
 }
 
 #credits li:before {
