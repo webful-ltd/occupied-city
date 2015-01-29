@@ -5,11 +5,11 @@ For now the server mostly just organises static resources and the site is largel
 yet make serious use of Symfony or use the database.
 
 The site lives at **[occupied.city](http://occupied.city)** and is released as
-[open source](https://github.com/WebfulLtd/occupied-city) under the MIT Licence.
+[open source](https://github.com/webful-ltd/occupied-city) under the MIT Licence.
 
 Issues
 ------
-Issues are [tracked on GitHub](https://github.com/WebfulLtd/occupied-city/issues).
+Issues are [tracked on GitHub](https://github.com/webful-ltd/occupied-city/issues).
 
 Mapping
 -------
