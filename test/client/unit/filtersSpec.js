@@ -14,7 +14,7 @@ describe('filter', function() {
             area: 1572
         };
 
-        it('should replace interpolated special text', inject(function(interpolateFilter, basePopulation) {
+        it('should replace interpolated special text', inject(function(interpolateFilter) {
             var adjustedPopulation = '57,403'; // 12345 * 8416535 [London] / 1810037 [base], rounded and formatted
             expect(interpolateFilter('In {city} there are {population|12345} people moving!', testCity))
                 .toEqual('In London there are ' + adjustedPopulation + ' people moving!');
