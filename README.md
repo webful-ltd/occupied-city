@@ -23,6 +23,11 @@ to produce approximate outlines for each included city. Currently the coordinate
  geojson file and included in our service data. Cities without a `coords` key will use their area and draw a circle
  instead of the real city shape.
 
+Some of the resulting shapes are a slightly weird representation of the city, but I've not yet found a better data
+source covering the whole world with enough detail to include cities the size of (say) Liverpool. It would be
+good to stick to one consistent source and process for all cities. Do you know of a better place to get outline geojson?
+Let me know!
+
 Dependencies
 ------------
 Server dependencies are managed with Composer and client libraries with Bower.
