@@ -3,7 +3,8 @@
 angular.module('occupied.services', [])
 
     .value('basePopulation', 1810037) // 1946 total, http://www.jewishvirtuallibrary.org/jsource/Society_&_Culture/israel_palestine_pop.html
-    .value('baseArea', 5860)// km^2, West Bank - https://www.cia.gov/library/publications/the-world-factbook/geos/we.html
+    .value('baseArea', 6209)// km^2, approx for West Bank & Gaza - roughly the 'modern' Palestinian Territories
+        // N.B. West Bank is ~5860km^2 - https://www.cia.gov/library/publications/the-world-factbook/geos/we.html
         // N.B. all of historical Palestine is more like 26,000km^2 - http://www.plands.org/articles/004.html
 
     .factory('CityData', function() {
@@ -131,7 +132,7 @@ angular.module('occupied.services', [])
         };
     })
 
-    .factory('HistoryData', ['basePopulation', function(basePopulation) {
+    .factory('HistoryData', ['basePopulation', 'baseArea', function(basePopulation, baseArea) {
         return {
             get: function() {
                 return [
@@ -168,7 +169,7 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 872700, // 1948 total, http://www.jewishvirtuallibrary.org/jsource/Society_&_Culture/israel_palestine_pop.html
-                        occupiedSpace: 0 // todo
+                        refugees: 750000
                     },
                     {
                         year: 1967,
@@ -186,10 +187,10 @@ angular.module('occupied.services', [])
                                     '<a class="source" external href="http://www.maannews.net/eng/ViewDetails.aspx?ID=439273">Source</a>'
                             }
                         ],
-                        population: 3022100, //todo infer 'Palestinian' population?
-                        settlers: 1, // todo
-                        settlements: 1, // todo
-                        occupiedSpace: 0 // todo, // km^2
+                        population: 544600, // West Bank + Gaza, http://unctad.org/en/docs/poecdcseud1.en.pdf p11
+                        refugees: 1100000, // approx - http://www.badil.org/en/press-releases/55-press-releases-2002/323-press261-02 and http://www.un.int/wcm/content/site/palestine/cache/offonce/pid/11587
+                        settlers: 100, // 1 settlement, population unknown, http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        settlements: 1 // http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 1972,
@@ -201,19 +202,30 @@ angular.module('occupied.services', [])
                                     'made to leave annually. <a class="source" external href="http://www.un.int/wcm/content/site/palestine/cache/offonce/pid/11587">Source</a>'
                             }
                         ],
-                        settlers: 10608 // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        population: 10300000, // 1970 - http://en.wikipedia.org/wiki/Palestinian_territories
+                        settlers: 10608, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        settlements: 14 // http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 1983,
-                        settlers: 106595 // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        settlers: 22800, // http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        settlements: 76, // http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        population: 1360000 // 1980 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
                     },
                     {
                         year: 1989,
-                        settlers: 199900 // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        //settlers: 199900, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        // Not sure why the disparity above/below is so big - presumably the above includes 'not recognisd' / unofficial settlements
+                        settlers: 69800, // http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        settlements: 115, // http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        population: 1900000 // 1990 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
                     },
                     {
                         year: 1993,
-                        settlers: 281800 // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        //settlers: 281800, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        settlers: 257700, // http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        settlements: 125, // est, 120 + ? - http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        population: 1900000 // 1990 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
                     },
                     {
                         year: 2001,
@@ -227,7 +239,10 @@ angular.module('occupied.services', [])
                                     '<a class="source" external href="http://www.hrw.org/news/2001/12/04/israeli-schools-separate-not-equal">Human Rights Watch</a>'
                             }
                         ],
-                        settlers: 387859 // 2000 figure, http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        population: 3110000, // 2000 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        settlers: 387859, // 2000 figure, http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        // 374900 at http://www.btselem.org/download/200205_land_grab_eng.pdf
+                        settlements: 128 // est, 120 + ? - http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 2002,
@@ -244,7 +259,9 @@ angular.module('occupied.services', [])
                                 '<a class="source" external href="http://www.pcbs.gov.ps/site/512/default.aspx?tabID=512&lang=en&ItemID=788&mid=3171&wversion=Staging">PCBS</a>'
                             }
                         ],
-                        settlers: 414119 // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        population: 3110000, // 2000 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        settlers: 414119, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
+                        settlements: 135 // guess from before/ after figures
                     },
                     {
                         year: 2011,
@@ -259,12 +276,13 @@ angular.module('occupied.services', [])
                                 '<a class="source" external href="http://www.maannews.net/eng/ViewDetails.aspx?ID=439273">Source</a>'
                             },
                             {
-                                'virtual': 'Settlers now control {area|2399.824} of the land in the original {city}, out of a total area of {area|5860}.',
+                                'virtual': 'Settlers now control {area|2399.824} of the land in the original {city}, out of a total area of {area|' + baseArea + '}.',
                                 'history': 'By 2009, settler controlled areas of Palestine totalled an estimated 2,399.8 km² ' +
                                 'of land within Palestine. ' +
                                 '<a class="source" external href="http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf">Source</a>'
                             }
                         ],
+                        population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
                         settlers: 4900000, // 2009 estimate - http://www.hrw.org/en/node/95059/section/5
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 200 // 2009 lower estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
@@ -281,6 +299,7 @@ angular.module('occupied.services', [])
                                 '<a class="source" external href="http://english.alarabiya.net/en/News/middle-east/2015/01/05/U-S-opposes-Israel-s-freeze-on-Palestinian-tax-revenue.html">Source</a>'
                             }
                         ],
+                        population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
                         settlers: 460838, // 2005 figure - http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 225 // 2012 estimate - http://www.btselem.org/settlements/statistics
@@ -296,6 +315,7 @@ angular.module('occupied.services', [])
                                 '<a class="source" external href="http://www.wsj.com/articles/israel-withholds-palestinian-tax-revenues-1420312156">The Wall Street Journal</a>'
                             }
                         ],
+                        population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
                         settlers: 515000, // 2013 estimate - http://www.btselem.org/settlements/statistics
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 225 // 2012 estimate - http://www.btselem.org/settlements/statistics
@@ -324,6 +344,7 @@ angular.module('occupied.services', [])
                                 '<a class="source" external href="http://www.key1948.org/about-us/history-of-palestinian-refugees/">Source</a>'
                             }
                         ],
+                        population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
                         settlers: 515000, // 2013 estimate - http://www.btselem.org/settlements/statistics
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 225 // 2012 estimate - http://www.btselem.org/settlements/statistics
