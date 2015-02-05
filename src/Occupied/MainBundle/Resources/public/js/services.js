@@ -188,7 +188,8 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 544600, // West Bank + Gaza, http://unctad.org/en/docs/poecdcseud1.en.pdf p11
-                        refugees: 1100000, // approx - http://www.badil.org/en/press-releases/55-press-releases-2002/323-press261-02 and http://www.un.int/wcm/content/site/palestine/cache/offonce/pid/11587
+                        //refugees: 1100000, // approx - http://www.badil.org/en/press-releases/55-press-releases-2002/323-press261-02 and http://www.un.int/wcm/content/site/palestine/cache/offonce/pid/11587
+                        refugees: 2166384, // 1970 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 100, // 1 settlement, population unknown, http://www.btselem.org/download/200205_land_grab_eng.pdf
                         settlements: 1 // http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
@@ -203,29 +204,33 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 10300000, // 1970 - http://en.wikipedia.org/wiki/Palestinian_territories
+                        refugees: 2492977, // 1975 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 10608, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         settlements: 14 // http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 1983,
+                        population: 1360000, // 1980 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        refugees: 3237190, // 1985 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 22800, // http://www.btselem.org/download/200205_land_grab_eng.pdf
-                        settlements: 76, // http://www.btselem.org/download/200205_land_grab_eng.pdf
-                        population: 1360000 // 1980 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        settlements: 76 // http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 1989,
+                        population: 1900000, // 1990 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        refugees: 3792819, // 1990 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         //settlers: 199900, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
-                        // Not sure why the disparity above/below is so big - presumably the above includes 'not recognisd' / unofficial settlements
+                        // Not sure why the disparity above/below is so big - presumably the above includes 'not recognised' / unofficial settlements
                         settlers: 69800, // http://www.btselem.org/download/200205_land_grab_eng.pdf
-                        settlements: 115, // http://www.btselem.org/download/200205_land_grab_eng.pdf
-                        population: 1900000 // 1990 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        settlements: 115 // http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 1993,
+                        population: 1900000, // 1990 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        refugees: 4859029, // 1995 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         //settlers: 281800, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         settlers: 257700, // http://www.btselem.org/download/200205_land_grab_eng.pdf
-                        settlements: 125, // est, 120 + ? - http://www.btselem.org/download/200205_land_grab_eng.pdf
-                        population: 1900000 // 1990 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        settlements: 125 // est, 120 + ? - http://www.btselem.org/download/200205_land_grab_eng.pdf
                     },
                     {
                         year: 2001,
@@ -240,6 +245,7 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 3110000, // 2000 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        refugees: 5497857, // http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 387859, // 2000 figure, http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         // 374900 at http://www.btselem.org/download/200205_land_grab_eng.pdf
                         settlements: 128 // est, 120 + ? - http://www.btselem.org/download/200205_land_grab_eng.pdf
@@ -260,6 +266,7 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 3110000, // 2000 - http://en.wikipedia.org/wiki/Palestinian_territories, presume US Census
+                        refugees: 5639931, // http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 414119, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         settlements: 135 // guess from before/ after figures
                     },
@@ -283,6 +290,8 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
+                        //refugees: 4900000, // 2010 - http://www.unrwa.org/userfiles/2011120434013.pdf
+                        refugees: 6641799, // 2008 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 4900000, // 2009 estimate - http://www.hrw.org/en/node/95059/section/5
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 200 // 2009 lower estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
@@ -300,6 +309,8 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
+                        //refugees: 4900000, // 2010 - http://www.unrwa.org/userfiles/2011120434013.pdf
+                        refugees: 6641799, // 2008 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 460838, // 2005 figure - http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 225 // 2012 estimate - http://www.btselem.org/settlements/statistics
@@ -316,6 +327,8 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
+                        //refugees: 5400000, // http://english.wafa.ps/index.php?action=detail&id=25558
+                        refugees: 6641799, // 2008 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 515000, // 2013 estimate - http://www.btselem.org/settlements/statistics
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 225 // 2012 estimate - http://www.btselem.org/settlements/statistics
@@ -345,6 +358,8 @@ angular.module('occupied.services', [])
                             }
                         ],
                         population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
+                        //refugees: 5400000, // 2014 - http://english.wafa.ps/index.php?action=detail&id=25558
+                        refugees: 6641799, // 2008 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 515000, // 2013 estimate - http://www.btselem.org/settlements/statistics
                         settlerControlledArea: 2399.824, // km^2, 2009 estimate - http://www.btselem.org/download/201007_by_hook_and_by_crook_eng.pdf
                         settlements: 225 // 2012 estimate - http://www.btselem.org/settlements/statistics
