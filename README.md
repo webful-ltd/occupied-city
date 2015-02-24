@@ -20,12 +20,12 @@ provider, OpenStreetMap.
 ### City outlines
 We're using [Flickr Shapefiles](http://code.flickr.net/2011/01/08/flickr-shapefiles-public-dataset-2-0/) locality data
 to produce approximate outlines for each included city. Currently the coordinates are manually copy/pasted from their
- geojson file and included in our service data. Cities without a `coords` key will use their area and draw a circle
+ GeoJSON file and included in our service data. Cities without a `coords` key will use their area and draw a circle
  instead of the real city shape.
 
 Some of the resulting shapes are a slightly weird representation of the city, but I've not yet found a better data
 source covering the whole world with enough detail to include cities the size of (say) Liverpool. It would be
-good to stick to one consistent source and process for all cities. Do you know of a better place to get outline geojson?
+good to stick to one consistent source and process for all cities. Do you know of a better place to get outline GeoJSON?
 Let me know!
 
 Dependencies
