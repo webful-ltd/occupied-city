@@ -49,6 +49,14 @@ angular.module('occupied.controllers', [])
 
         // Add all the city-specific mapping pieces: centre position and circle/outline overlay
         angular.extend($scope, MapHelper.buildLeafletData(city));
+
+        // TODO use leaflet-pip
+        //
+        //leafletPip.bassackwards = true;
+        //leafletData.getGeoJSON().then(function(l2) {
+        //    console.log(l2);
+        //    console.log(leafletPip.pointInLayer([53.47, -2.23], l2, true));
+        //});
     }])
 
     .controller('AboutController', function() {
