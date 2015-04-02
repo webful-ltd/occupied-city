@@ -69,7 +69,7 @@ This is the one currently used for the local dev environment:
             RewriteRule ^ - [L]
 
             # Rewrite Angular routes to PHP index file to allow html5 state links
-            RewriteRule ^/app_dev\.php/([a-zA-Z0-9]+)$ /app_dev.php/#!/$1 [R,L,NE]
+            RewriteRule ^/app_dev\.php/([a-zA-Z0-9/]+)$ /app_dev.php/#!/$1 [R,L,NE]
 
             <Directory "/Users/noel/files/Dev/Occupied City/web">
                     Options Includes Indexes FollowSymLinks MultiViews
