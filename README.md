@@ -36,7 +36,7 @@ Requirements
 ------------
 * PHP 5.4+
 * MySQL 5.5+
-* Apache 2.2.*
+* Apache 2.2+
 
 Tests
 -----
