@@ -38,7 +38,13 @@ angular.module('occupied', [
                 url: '/:city',
                 controller: 'CityController',
                 templateUrl: '/partials/city.html'
-            });
+            })
+            .state('city.year', {   // child of `city`
+                url: '/:year',      // this URL piece follows `city`'s
+                controller: 'CityController',
+                templateUrl: '/partials/city.html'
+            })
+        ;
 
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true).hashPrefix('!');

@@ -13,37 +13,48 @@ angular.module('occupied.controllers', [])
             return;
         }
 
+        var history = HistoryData.get();
+        var thisYear = (new Date()).getFullYear();
+        var firstYear = history[0]['year'];
+        var offset = thisYear - firstYear;
+
+        if (!$state.params['year']) {
+            $scope.activeYear = firstYear;
+        } else {
+            $scope.activeYear = $state.params['year'];
+        }
+
+        var historyIndex = 0;
+        for (var ii = 0; ii < history.length; ii++) {
+            if (history[ii].year == $scope.activeYear) {
+                historyIndex = ii;
+                break;
+            }
+        }
+
         // If the case was wrong, redirect so we have consistent URLs for sharing
         if (city.name !== $state.params['city']) {
             $state.go('city', {city: city.name});
             return;
         }
 
-        $scope.thisYear = (new Date()).getFullYear();
-        $scope.historyIndex = 0;
-        var history = HistoryData.get();
-        $scope.originalPopulation = history[0]['population'];
-        $scope.originalArea = baseArea;
-
-        $scope.update = function() {
-            var current = history[$scope.historyIndex];
-            $scope.dayHeading = $scope.thisYear + current['year'] - 1946;
-            $scope.population = $scope.originalPopulation * current['populationPercentage'] / 100;
-            $scope.events = current['events'];
-        };
+        var current = history[historyIndex];
+        var originalPopulation = history[0]['population'];
+        var populationRatio = city.population / originalPopulation;
+        $scope.canGoForward = (historyIndex < history.length - 1);
+        $scope.canGoBack = (historyIndex > 0);
 
         $scope.progress = function() {
-            $scope.historyIndex++;
-            $scope.update();
+            $state.go('city.year', {city: city.name, year: history[historyIndex + 1].year}, {reload: true});
         };
 
         $scope.back = function() {
-            $scope.historyIndex--;
-            $scope.update();
+            $state.go('city.year', {city: city.name, year: history[historyIndex - 1].year}, {reload: true});
         };
 
-        $scope.update();
-
+        $scope.dayHeading = parseInt($scope.activeYear) + offset;
+        $scope.population = originalPopulation * populationRatio;
+        $scope.events = current['events'];
         $scope.city = city;
         $state.current.data = {'pageTitle': $state.params['city']};
 

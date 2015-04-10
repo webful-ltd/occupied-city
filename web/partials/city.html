@@ -12,8 +12,8 @@
 </div>
 
 <div>
-    <button class="back" ng-click="back()">&lt;</button>
-    <button class="next" ng-click="progress()">&gt;&gt;</button>
+    <button class="back" ng-click="back()" ng-show="canGoBack">&lt;</button>
+    <button class="next" ng-click="progress()" ng-show="canGoForward">&gt;&gt;</button>
 </div>
 
 <leaflet defaults="defaults" center="center" markers="markers" paths="paths" geojson="geojson"
