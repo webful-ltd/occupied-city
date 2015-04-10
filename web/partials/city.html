@@ -7,8 +7,8 @@
 </div>
 
 <div>
-    <button class="back" ng-click="back()" ng-show="canGoBack">&lt;</button>
-    <button class="next" ng-click="progress()" ng-show="canGoForward">&gt;&gt;</button>
+    <button class="city-nav back" ng-click="back()" ng-disabled="!canGoBack">&lt;</button>
+    <button class="city-nav next" ng-click="progress()" ng-disabled="!canGoForward">&gt;&gt;</button>
 </div>
 
 <div ng-repeat="event in events" class="event-container">

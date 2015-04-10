@@ -58,7 +58,19 @@ h4 {
 button.next {
     border: solid 2px #090;
     background: #9f9;
+}
+
+button.back {
+    border: solid 2px #000;
+}
+
+button.city-nav {
     font-size: 300%;
+}
+
+button.city-nav:disabled {
+    background: #a9a9a9;
+    border: solid 2px #000;
 }
 
 .event {
