@@ -6,18 +6,20 @@
 <p>Local population: <strong>{[ population | number ]}</strong></p>
 </div>
 
-<div ng-repeat="event in events">
-    <p ng-if="event.virtual" class="virtual event" compile="event.virtual | interpolate : city"></p>
-    <p ng-if="event.history" class="history event" compile="event.history | interpolate : city"></p>
-</div>
-
 <div>
     <button class="back" ng-click="back()" ng-show="canGoBack">&lt;</button>
     <button class="next" ng-click="progress()" ng-show="canGoForward">&gt;&gt;</button>
 </div>
 
-<leaflet defaults="defaults" center="center" markers="markers" paths="paths" geojson="geojson"
+<div ng-repeat="event in events" class="event-container">
+    <p ng-if="event.virtual" class="virtual event" compile="event.virtual | interpolate : city"></p>
+    <p ng-if="event.history" class="history event" compile="event.history | interpolate : city"></p>
+</div>
+
+<div class="leaflet-container">
+    <leaflet defaults="defaults" center="center" markers="markers" paths="paths" geojson="geojson"
          height="480px" width="640px"></leaflet>
+</div>
 
 <ul class="notes">
     <li>When talking about fictional {[ ::city.name ]} we use areas and population numbers in proportion to 1940s Palestine. We try
