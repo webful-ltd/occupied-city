@@ -32,10 +32,18 @@ angular.module('occupied.controllers', [])
             }
         }
 
+        if (!!$state.params['year'] && historyIndex === 0 && $state.params['year'] != firstYear) {
+            // Invalid year specified - jump to start for this city
+            $state.go('city', {city: city.name}, {reload: true});
+        }
+
         // If the case was wrong, redirect so we have consistent URLs for sharing
         if (city.name !== $state.params['city']) {
-            $state.go('city', {city: city.name});
-            return;
+            if (!$state.params['year']) {
+                $state.go('city', {city: city.name});
+            } else {
+                $state.go('city.year', {city: city.name, year: $state.params['year']});
+            }
         }
 
         var current = history[historyIndex];
