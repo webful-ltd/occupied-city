@@ -53,7 +53,7 @@ angular.module('occupied.controllers', [])
         };
 
         $scope.dayHeading = parseInt($scope.activeYear) + offset;
-        $scope.population = originalPopulation * populationRatio;
+        $scope.population = parseInt(current.population * populationRatio);
         $scope.events = current['events'];
         $scope.city = city;
         $state.current.data = {'pageTitle': $state.params['city']};
