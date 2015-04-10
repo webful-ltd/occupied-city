@@ -203,7 +203,7 @@ angular.module('occupied.services', [])
                                     'made to leave annually. <a class="source" external href="http://www.un.int/wcm/content/site/palestine/cache/offonce/pid/11587">Source</a>'
                             }
                         ],
-                        population: 10300000, // 1970 - http://en.wikipedia.org/wiki/Palestinian_territories
+                        population: 1030000, // 1970 - http://en.wikipedia.org/wiki/Palestinian_territories
                         refugees: 2492977, // 1975 - http://www.badil.org/phocadownload/Badil_docs/publications/survey08-09/survey08-09-ch-2.pdf
                         settlers: 10608, // http://www.fmep.org/settlement_info/settlement-info-and-tables/stats-data/israeli-settler-population-1972-2006
                         settlements: 14 // http://www.btselem.org/download/200205_land_grab_eng.pdf
