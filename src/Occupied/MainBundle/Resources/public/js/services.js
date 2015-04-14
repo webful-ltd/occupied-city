@@ -402,8 +402,8 @@ angular.module('occupied.services', [])
                                 'virtual': 'The occupiers have decided to withold tax revenues from {city} again &ndash; this time as ' +
                                 'a result of a bid to attain the legal standing to challenge the occupation\'s injustices internationally.',
                                 'history': 'Palestinian tax was frozen (again) in January 2015 after the Palestinian government decided ' +
-                                'to join the International Criminal Court ' +
-                                '<a class="source" external href="http://www.wsj.com/articles/israel-withholds-palestinian-tax-revenues-1420312156">The Wall Street Journal</a>. Funds were ' +
+                                'to join the International Criminal Court. ' +
+                                '<a class="source" external href="http://www.wsj.com/articles/israel-withholds-palestinian-tax-revenues-1420312156">The Wall Street Journal</a> Funds were ' +
                                 'released only after the 2015 Israeli election.'
                             }
                         ],
