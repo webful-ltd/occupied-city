@@ -457,9 +457,11 @@ angular.module('occupied.services', [])
              * directly with Leaflet directive
              *
              * @param {object} city Should have keys 'name', 'lat', 'lng', 'area' and optionally 'coords'
+             * @param {int} refugees (Population-adjusted) number of refugees for current render
              * @returns {{center: {lat: *, lng: *, zoom: number}, paths: {}, geojson: {}}}
              */
-            buildLeafletData: function(city) {
+            buildLeafletData: function(city, refugees) {
+                var colour = (refugees > 0 ? '#f99' : '#9f9');
                 var geojson = {};
                 var paths = {};
                 var circleRadius = Math.sqrt(city.area / Math.PI) * 1000; // in m
@@ -490,7 +492,7 @@ angular.module('occupied.services', [])
                             ]
                         },
                         style: {
-                            fillColor: '#9f9',
+                            fillColor: colour,
                             weight: 2,
                             opacity: 1,
                             color: '#fff',

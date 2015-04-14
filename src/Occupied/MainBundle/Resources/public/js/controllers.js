@@ -68,6 +68,7 @@ angular.module('occupied.controllers', [])
         };
 
         $scope.dayHeading = parseInt($scope.activeYear) + offset;
+        $scope.refugees = 0;
         $scope.population = parseInt(current.population * populationRatio);
         if ('refugees' in current) {
             $scope.refugees = parseInt(current.refugees * populationRatio);
@@ -88,7 +89,7 @@ angular.module('occupied.controllers', [])
         $state.current.data = {'pageTitle': $state.params['city']};
 
         // Add all the city-specific mapping pieces: centre position and circle/outline overlay
-        angular.extend($scope, MapHelper.buildLeafletData(city));
+        angular.extend($scope, MapHelper.buildLeafletData(city, $scope.refugees));
 
         // TODO use leaflet-pip
         //
