@@ -135,16 +135,25 @@ angular.module('occupied.services', [])
                 return false;
             },
 
-            getCityNames: function() {
-                var keys = [];
+            getPlaces: function() {
+                var cities = [];
+                var countries = [];
+
                 var data = this._getAll();
                 for (var key in data) {
                     if (data.hasOwnProperty(key)) {
-                        keys.push(key);
+                        if ('country' in data[key] && data[key]['country'] === true) {
+                            countries.push(key);
+                        } else {
+                            cities.push(key);
+                        }
                     }
                 }
 
-                return keys;
+                return {
+                    'cities': cities,
+                    'countries': countries
+                };
             }
 
         };

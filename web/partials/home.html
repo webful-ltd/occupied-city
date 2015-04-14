@@ -1,9 +1,21 @@
 <h4>Visualise an Occupation of your city.</h4>
 
-<p>How would your life be affected by occupation? Choose a city to explore an alternative reality.</p>
+<p>How would your life be affected by occupation? Choose a place to explore an alternative reality.</p>
 
+<div class="place-list">
+<h4>Cities</h4>
 <ul>
-    <li ng-repeat="cityName in cityNames | orderBy: cityName">
-        <a ui-sref="city({city: cityName})">{[ cityName ]}</a>
+    <li ng-repeat="name in cities | orderBy: name">
+        <a ui-sref="city({city: name})">{[ name ]}</a>
     </li>
 </ul>
+</div>
+
+<div class="place-list">
+<h4>Countries</h4>
+<ul>
+    <li ng-repeat="name in countries | orderBy: name">
+        <a ui-sref="city({city: name})">{[ name ]}</a>
+    </li>
+</ul>
+</div>

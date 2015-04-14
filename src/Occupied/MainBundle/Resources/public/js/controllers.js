@@ -3,7 +3,9 @@
 angular.module('occupied.controllers', [])
 
     .controller('HomeController', ['$scope', 'CityData', function($scope, CityData) {
-        $scope.cityNames = CityData.getCityNames();
+        var places = CityData.getPlaces();
+        $scope.cities = places['cities'];
+        $scope.countries = places['countries'];
     }])
 
     .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', 'HistoryData', 'MapHelper', 'baseArea', function($scope, $state, $filter, leafletData, CityData, HistoryData, MapHelper, baseArea) {
