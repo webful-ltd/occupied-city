@@ -463,7 +463,7 @@ angular.module('occupied.services', [])
                     center: {
                         lat: city.lat,
                         lng: city.lng,
-                        zoom: Math.round(11 - Math.sqrt(city.area) / 25)
+                        zoom: Math.round(11 - Math.pow(city.area, 1/2.7) / 15)
                     },
                     paths: paths,
                     geojson: geojson
