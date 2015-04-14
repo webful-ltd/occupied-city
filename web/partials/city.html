@@ -5,6 +5,10 @@
 <div class="vitals">
 <h4>{[ dayHeading ]}</h4>
 <p>Local population: <strong>{[ population | number ]}</strong></p>
+<p ng-show="refugees > 0">Refugees: <strong>{[ refugees | number ]}</strong></p>
+<p ng-show="settlers > 0">Settlers: <strong>{[ settlers | number ]}</strong></p>
+<p ng-show="settlements">Settlements: <strong>{[ settlements | number ]}</strong></p>
+<p ng-show="settlerArea">Settler controlled area: <strong>{[ settlerArea | number ]}km²</strong></p>
 </div>
 
 <div>

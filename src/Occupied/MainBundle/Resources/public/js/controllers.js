@@ -69,6 +69,20 @@ angular.module('occupied.controllers', [])
 
         $scope.dayHeading = parseInt($scope.activeYear) + offset;
         $scope.population = parseInt(current.population * populationRatio);
+        if ('refugees' in current) {
+            $scope.refugees = parseInt(current.refugees * populationRatio);
+        }
+        if ('settlers' in current) {
+            $scope.settlers = parseInt(current.settlers * populationRatio);
+        }
+        if ('settlements' in current) {
+            $scope.settlements = parseInt(current.settlements);
+        }
+        if ('settlerControlledArea' in current) {
+            var originalArea = history[0]['area'];
+            var areaRatio = city.area / originalArea;
+            $scope.settlerArea = parseInt(current.settlerControlledArea * areaRatio);
+        }
         $scope.events = current['events'];
         $scope.city = city;
         $state.current.data = {'pageTitle': $state.params['city']};
