@@ -28,6 +28,10 @@ source covering the whole world with enough detail to include cities the size of
 good to stick to one consistent source and process for all cities. Do you know of a better place to get outline GeoJSON?
 Let me know!
 
+### Country outlines
+As Flickr shapes were even more noticeably off for at least some countries, we use
+[these approximations](https://github.com/johan/world.geo.json) instead.
+
 Dependencies
 ------------
 Server dependencies are managed with Composer and client libraries with Bower.
@@ -69,7 +73,7 @@ This is the one currently used for the local dev environment:
             RewriteRule ^ - [L]
 
             # Rewrite Angular routes to PHP index file to allow html5 state links
-            RewriteRule ^/app_dev\.php/([a-zA-Z0-9/]+)$ /app_dev.php/#!/$1 [R,L,NE]
+            RewriteRule ^/app_dev\.php/([\ a-zA-Z0-9/]+)$ /app_dev.php/#!/$1 [R,L,NE]
 
             <Directory "/Users/noel/files/Dev/Occupied City/web">
                     Options Includes Indexes FollowSymLinks MultiViews
