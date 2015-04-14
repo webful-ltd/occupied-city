@@ -44,6 +44,8 @@ assetic:
             inputs:
                 - bundles/occupiedmain/css/main.css
                 - bundles/occupiedmain/bower/leaflet/dist/leaflet.css
+                - bundles/occupiedmain/bower/font-awesome/css/font-awesome.min.css
+                - bundles/occupiedmain/bower/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css
         jslibs:
             inputs:
                 - bundles/occupiedmain/bower/angular/angular.min.js
@@ -53,6 +55,7 @@ assetic:
                 - bundles/occupiedmain/bower/angulartics/dist/angulartics.min.js
                 - bundles/occupiedmain/bower/angulartics/dist/angulartics-ga.min.js
                 - bundles/occupiedmain/bower/leaflet-pip/leaflet-pip.min.js
+                - bundles/occupiedmain/bower/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js
         js:
             inputs:
                 - bundles/occupiedmain/js/app.js
