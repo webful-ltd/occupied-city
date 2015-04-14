@@ -458,9 +458,10 @@ angular.module('occupied.services', [])
              *
              * @param {object} city Should have keys 'name', 'lat', 'lng', 'area' and optionally 'coords'
              * @param {int} refugees (Population-adjusted) number of refugees for current render
+             * @param {int} numMarkers Number of settlement markers to draw within city/country
              * @returns {{center: {lat: *, lng: *, zoom: number}, paths: {}, geojson: {}}}
              */
-            buildLeafletData: function(city, refugees) {
+            buildLeafletData: function(city, refugees, numMarkers) {
                 var colour = (refugees > 0 ? '#f99' : '#9f9');
                 var geojson = {};
                 var paths = {};
@@ -515,6 +516,8 @@ angular.module('occupied.services', [])
                     }
                 }
 
+                var markers = this.buildMarkers(numMarkers, city.lat, city.lng, city.area, geojson);
+
                 return {
                     center: {
                         lat: city.lat,
@@ -522,8 +525,56 @@ angular.module('occupied.services', [])
                         zoom: Math.round(11 - Math.pow(city.area, 1/2.7) / 15)
                     },
                     paths: paths,
-                    geojson: geojson
+                    geojson: geojson,
+                    markers: markers
                 }
+            },
+
+            buildMarkers: function(numMarkers, lat, lng, area, geojson) {
+                var remainingMarkers = numMarkers;
+                var markers = [];
+
+                console.log(numMarkers);
+
+                //if (geojson === {}) {
+                    var radius = Math.sqrt(area / Math.PI);
+
+                    console.log(radius);
+
+                    while (remainingMarkers > 0) {
+
+                        var d = Math.random() * radius
+                            * 2     // circumference from radius
+                            * 1000; // km from m
+                        var brng = Math.random() * Math.PI * 2;
+
+                        var dx = d*Math.sin(brng);
+                        var dy = d*Math.cos(brng);
+                        var delta_longitude = dx/(111320*Math.cos(lat))  ;
+                        var delta_latitude = dy/110540                   ;
+
+                        //console.log(d, brng);
+
+                        var newLat = lat + delta_latitude;
+                        var newLng = lng + delta_longitude;
+
+                        console.log('pushing marker', newLat, newLng);
+                        markers.push({
+                            lat: newLat,
+                            lng: newLng,
+                            draggable: false
+                        });
+                        remainingMarkers--;
+                    }
+                //}
+
+                //leafletPip.bassackwards = true;
+                //leafletData.getGeoJSON().then(function(l2) {
+                //    console.log(l2);
+                //    console.log(leafletPip.pointInLayer([53.47, -2.23], l2, true));
+                //});
+
+                return markers;
             }
         }
     }])

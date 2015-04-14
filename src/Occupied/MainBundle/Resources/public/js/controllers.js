@@ -76,6 +76,7 @@ angular.module('occupied.controllers', [])
         if ('settlers' in current) {
             $scope.settlers = parseInt(current.settlers * populationRatio);
         }
+        $scope.settlements = 0;
         if ('settlements' in current) {
             $scope.settlements = parseInt(current.settlements);
         }
@@ -89,15 +90,7 @@ angular.module('occupied.controllers', [])
         $state.current.data = {'pageTitle': $state.params['city']};
 
         // Add all the city-specific mapping pieces: centre position and circle/outline overlay
-        angular.extend($scope, MapHelper.buildLeafletData(city, $scope.refugees));
-
-        // TODO use leaflet-pip
-        //
-        //leafletPip.bassackwards = true;
-        //leafletData.getGeoJSON().then(function(l2) {
-        //    console.log(l2);
-        //    console.log(leafletPip.pointInLayer([53.47, -2.23], l2, true));
-        //});
+        angular.extend($scope, MapHelper.buildLeafletData(city, $scope.refugees, $scope.settlements));
     }])
 
     .controller('AboutController', function() {
