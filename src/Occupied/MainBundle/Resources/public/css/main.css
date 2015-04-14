@@ -88,13 +88,13 @@ button.city-nav:disabled {
 }
 
 .event.history {
-    background: #dfd;
+    background: #ddf;
     float: right;
 }
 
 a.source {
     font-family: monospace;
-    background: #050;
+    background: #555;
     margin: 0 5px;
     padding: 4px;
     border: solid 1px #090;
