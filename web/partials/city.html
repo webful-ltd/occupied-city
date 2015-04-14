@@ -1,5 +1,6 @@
-<p>Welcome to an alternate reality where {[ ::city.name ]} is going to become less fortunate. We'll start today and
+<p ng-hide="canGoBack">Welcome to an alternate reality where {[ ::city.name ]} is going to become less fortunate. We'll start today and
     use the current population of ~{[ ::city.population | number ]}.</p>
+<p ng-show="canGoBack"><a href="#" ng-click="restart()">&lt; Back to start</a></p>
 
 <div class="vitals">
 <h4>{[ dayHeading ]}</h4>

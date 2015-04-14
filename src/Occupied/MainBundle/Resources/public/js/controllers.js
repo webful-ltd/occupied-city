@@ -63,6 +63,10 @@ angular.module('occupied.controllers', [])
             $state.go('city.year', {city: city.name, year: history[historyIndex - 1].year}, {reload: true});
         };
 
+        $scope.restart = function() {
+            $state.go('city', {city: city.name}, {reload: true});
+        };
+
         $scope.dayHeading = parseInt($scope.activeYear) + offset;
         $scope.population = parseInt(current.population * populationRatio);
         $scope.events = current['events'];
