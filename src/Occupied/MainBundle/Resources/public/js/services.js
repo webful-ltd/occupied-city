@@ -435,7 +435,7 @@ angular.module('occupied.services', [])
                             },
                             {
                                 'history': 'Refugees represent 70% of the Palestinians in the world today. ' +
-                                '<a class="source" external href="http://www.key1948.org/about-us/history-of-palestinian-refugees/">Source</a>'
+                                '<a class="source" external href="http://www.caabu.org/sites/default/files/resources/Refugees%20and%20Israel%20Palestine_0.pdf">CAABU</a>'
                             }
                         ],
                         population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
