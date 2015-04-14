@@ -8,7 +8,7 @@ angular.module('occupied.controllers', [])
         $scope.countries = places['countries'];
     }])
 
-    .controller('CityController', ['$scope', '$state', '$filter', 'leafletData', 'CityData', 'HistoryData', 'MapHelper', 'baseArea', function($scope, $state, $filter, leafletData, CityData, HistoryData, MapHelper, baseArea) {
+    .controller('CityController', ['$scope', '$state', '$filter', 'CityData', 'HistoryData', 'MapHelper', function($scope, $state, $filter, CityData, HistoryData, MapHelper) {
         var city = CityData.getCity($state.params['city']);
         if (city === false) {
             $state.go('home');
