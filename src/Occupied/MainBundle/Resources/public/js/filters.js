@@ -5,6 +5,7 @@ angular.module('occupied.filters', ['occupied.services'])
     /**
      *  Filter to insert adjusted/ filled-in values for {city}, {population|...}, {area|...}, {year|...}.
      *
+     *  Year must be a full 4-digit value.
      *  Population must be an integer with no commas.
      *  Area must be an int or float with no commas.
      *  Area will have unit (km^2) appended to the number.
@@ -21,7 +22,7 @@ angular.module('occupied.filters', ['occupied.services'])
                 return $filter('number')(parseFloat(capture) * city.area / baseArea, 1) + ' km²';
             });
 
-            text = text.replace(new RegExp('\\{year\\|([0-9]+)\\}', 'g'), function(match, capture) {
+            text = text.replace(new RegExp('\\{year\\|([0-9]{4})\\}', 'g'), function(match, capture) {
                 return parseInt(capture) + (new Date()).getFullYear() - 1946;
             });
 
