@@ -450,7 +450,7 @@ angular.module('occupied.services', [])
         }
     }])
 
-    .factory('MapHelper', ['$filter', function($filter) {
+    .factory('MapHelper', ['$filter', 'leafletData', function($filter, leafletData) {
         return {
             /**
              * Takes a city object and returns an object with 'center', 'paths' and 'geojson' keys suitable for using
@@ -516,7 +516,7 @@ angular.module('occupied.services', [])
                     }
                 }
 
-                var markers = this.buildMarkers(numMarkers, city.lat, city.lng, city.area, geojson);
+                var markers = this._buildMarkers(numMarkers, city.lat, city.lng, city.area, geojson);
 
                 return {
                     center: {
@@ -530,51 +530,64 @@ angular.module('occupied.services', [])
                 }
             },
 
-            buildMarkers: function(numMarkers, lat, lng, area, geojson) {
-                var remainingMarkers = numMarkers;
+            _buildMarkers: function(requiredMarkers, lat, lng, area, geojson) {
                 var markers = [];
+                var mapHelper = this;
+                var radius = Math.sqrt(area / Math.PI);
 
-                console.log(numMarkers);
-
-                //if (geojson === {}) {
-                    var radius = Math.sqrt(area / Math.PI);
-
-                    console.log(radius);
-
-                    while (remainingMarkers > 0) {
-
-                        var d = Math.random() * radius
-                            * 2     // circumference from radius
-                            * 1000; // km from m
-                        var brng = Math.random() * Math.PI * 2;
-
-                        var dx = d*Math.sin(brng);
-                        var dy = d*Math.cos(brng);
-                        var delta_longitude = dx/(111320*Math.cos(lat))  ;
-                        var delta_latitude = dy/110540                   ;
-
-                        //console.log(d, brng);
-
-                        var newLat = lat + delta_latitude;
-                        var newLng = lng + delta_longitude;
-
-                        console.log('pushing marker', newLat, newLng);
-                        markers.push({
-                            lat: newLat,
-                            lng: newLng,
-                            draggable: false
-                        });
-                        remainingMarkers--;
+                if (geojson === {}) { // Use circle approximation where we have no geojson outline
+                    while (markers.length < requiredMarkers) {
+                        markers.push(this._generatePoint(lat, lng, radius));
                     }
-                //}
+                } else {
+                    leafletData.getGeoJSON().then(function(leafletGeojson) {
+                        var attempts = 0;
+                        while (markers.length < requiredMarkers) {
+                            // Try random points a little beyond the city's circle radius, then check if the point's
+                            // inside the real city outline
+                            var possMarker = mapHelper._generatePoint(lat, lng, radius * 1.3);
+                            // N.B. leafletPip requires params in order [lng, lat] by default
+                            var matches = leafletPip.pointInLayer([possMarker.lng, possMarker.lat], leafletGeojson, true);
+                            if (matches.length > 0) {
+                                markers.push(possMarker);
+                            }
 
-                //leafletPip.bassackwards = true;
-                //leafletData.getGeoJSON().then(function(l2) {
-                //    console.log(l2);
-                //    console.log(leafletPip.pointInLayer([53.47, -2.23], l2, true));
-                //});
+                            if (attempts++ > requiredMarkers * 4) {
+                                console.log('Stopping marker generation - not finished after ' + attempts + ' attempts');
+                                break;
+                            }
+                        }
+                    });
+                }
 
                 return markers;
+            },
+
+            /**
+             * Returns a Leaflet-ready object for a marker point a random distance up to `radius` from [`lat`, `lng`].
+             *
+             * @param {float} lat       Centre point latitude
+             * @param {float} lng       Centre point longitude
+             * @param {number} radius    Maximum radius to move from centre, in km
+             * @returns {{lat: *, lng: *, draggable: boolean}}
+             * @private
+             */
+            _generatePoint: function(lat, lng, radius) {
+                // Based on http://stackoverflow.com/a/2188606/2803757
+                var dist = Math.random() * radius
+                    * 2     // circumference from radius
+                    * 1000; // m from km
+                var brng = Math.random() * Math.PI * 2;
+
+                var dx = dist * Math.sin(brng);
+                var dy = dist * Math.cos(brng);
+                var deltaLat = dy / 110540;
+                var deltaLng = dx / (111320 * Math.cos(lat));
+
+                var newLat = lat + deltaLat;
+                var newLng = lng + deltaLng;
+
+                return {lat: newLat, lng: newLng, draggable: false};
             }
         }
     }])
