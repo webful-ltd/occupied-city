@@ -79,6 +79,7 @@ button.city-nav:disabled {
     font-size: 110%;
     padding: 10px;
     max-width: 45%;
+    line-height: 1.5;
 }
 
 .event.virtual {
