@@ -577,10 +577,10 @@ angular.module('occupied.services', [])
                 var dist = Math.random() * radius
                     * 2     // circumference from radius
                     * 1000; // m from km
-                var brng = Math.random() * Math.PI * 2;
+                var bearing = Math.random() * Math.PI * 2;
 
-                var dx = dist * Math.sin(brng);
-                var dy = dist * Math.cos(brng);
+                var dx = dist * Math.sin(bearing);
+                var dy = dist * Math.cos(bearing);
                 var deltaLat = dy / 110540;
                 var deltaLng = dx / (111320 * Math.cos(lat));
 
