@@ -15,10 +15,11 @@ angular.module('occupied.controllers', [])
             return;
         }
 
+        $scope.thisYear = (new Date()).getFullYear();
+
         var history = HistoryData.get();
-        var thisYear = (new Date()).getFullYear();
         var firstYear = history[0]['year'];
-        var offset = thisYear - firstYear;
+        var offset = $scope.thisYear - firstYear;
 
         if (!$state.params['year']) {
             $scope.activeYear = firstYear;
