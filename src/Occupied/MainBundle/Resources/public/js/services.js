@@ -587,7 +587,18 @@ angular.module('occupied.services', [])
                 var newLat = lat + deltaLat;
                 var newLng = lng + deltaLng;
 
-                return {lat: newLat, lng: newLng, draggable: false};
+                return {
+                    lat: newLat,
+                    lng: newLng,
+                    draggable: false,
+                    icon: {
+                        type: 'awesomeMarker',
+                        prefix: 'fa',
+                        icon: 'home',
+                        markerColor: 'lightblue',
+                        iconColor: 'white'
+                    }
+                };
             }
         }
     }])
