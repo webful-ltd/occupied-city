@@ -11,8 +11,7 @@ angular.module('occupied', [
     'angulartics.google.analytics'
 ])
     .config(['$interpolateProvider', function ($interpolateProvider) {
-        $interpolateProvider.startSymbol('{[');
-        $interpolateProvider.endSymbol(']}');
+        $interpolateProvider.startSymbol('{[').endSymbol(']}');
     }])
 
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
