@@ -66,14 +66,8 @@ This is the one currently used for the local dev environment:
             ErrorLog "/Users/noel/files/Dev/Occupied City/app/logs/apache-errors.log"
 
             RewriteEngine on
-
-            # Don't rewrite files or directories
-            RewriteCond %{REQUEST_FILENAME} -f [OR]
-            RewriteCond %{REQUEST_FILENAME} -d
-            RewriteRule ^ - [L]
-
             # Rewrite Angular routes to PHP index file to allow html5 state links
-            RewriteRule ^/app_dev\.php/([^.]+)$ /app_dev.php/#!/$1 [R,L,NE]
+            RewriteRule ^/app_dev\.php/([^.]+)$ /app_dev.php/#!/$1 [R,NE]
 
             <Directory "/Users/noel/files/Dev/Occupied City/web">
                     Options Includes Indexes FollowSymLinks MultiViews
