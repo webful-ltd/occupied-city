@@ -73,7 +73,7 @@ This is the one currently used for the local dev environment:
             RewriteRule ^ - [L]
 
             # Rewrite Angular routes to PHP index file to allow html5 state links
-            RewriteRule ^/app_dev\.php/([^#.]+)$ /app_dev.php/#!/$1 [R,L,NE]
+            RewriteRule ^/app_dev\.php/([^.]+)$ /app_dev.php/#!/$1 [R,L,NE]
 
             <Directory "/Users/noel/files/Dev/Occupied City/web">
                     Options Includes Indexes FollowSymLinks MultiViews
@@ -82,3 +82,9 @@ This is the one currently used for the local dev environment:
                     Allow from all
             </Directory>
     </VirtualHost>
+
+Possible sources
+----------------
+Some potential sources for additional research & data:
+
+* [Visualizing Palestine settlement infographic](http://visualizingpalestine.org/visuals/palestinian-israeli-peace-talks-settlements-oslo)
