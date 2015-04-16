@@ -58,7 +58,10 @@ Apache virtual host configuration
 ---------------------------------
 To use both Symfony and 'HTML5 mode' AngularJS routes (with no `#` prefix) requires an unusual vhost setup.
 
-This is the one currently used for the local dev environment:
+For some background I wrote about this and the interpolation point above, you might want read
+[this blog post](http://noellh.com/blog/angularjs-symfony-harmony/).
+
+This is the VirtualHost currently used for the local dev environment:
 
     <VirtualHost *:80>
             DocumentRoot "/Users/noel/files/Dev/Occupied City/web"
@@ -82,3 +85,5 @@ Possible sources
 Some potential sources for additional research & data:
 
 * [Visualizing Palestine settlement infographic](http://visualizingpalestine.org/visuals/palestinian-israeli-peace-talks-settlements-oslo)
+* [UNRWA Barrier Monitoring Unit](http://www.unrwa.org/newsroom/features/barrier-monitoring-unit?id=908) -
+    We could show wall construction over time?
