@@ -319,7 +319,7 @@ angular.module('occupied.services', [])
                                 'virtual': 'Education for former {city} folk who have been forced out the city looks starkly different ' +
                                 'from that offered to the occupiers\' children. Human rights agencies note that although ' +
                                 'a quarter of the children educated in the occupier\'s area are {city} citizens, they are typically ' +
-                                'segragated and educated separately in schools with worse conditions.',
+                                'segregated and educated separately in schools with worse conditions.',
                                 'history': '"Israel systematically discriminates against Palestinian Arab citizens in its public school system". ' +
                                     '<a class="source" external href="http://www.hrw.org/news/2001/12/04/israeli-schools-separate-not-equal">Human Rights Watch</a>'
                             }
