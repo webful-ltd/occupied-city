@@ -231,7 +231,7 @@ angular.module('occupied.services', [])
                         events: [
                             {
                                 'virtual': 'A new power has begun claiming huge amounts of land in {city} and displacing residents. ' +
-                                'Some of your neighbouring boroughs made noises like they were going to help you out, but ' +
+                                'Some neighbouring boroughs made noises like they were going to help you out, but ' +
                                 'it doesn\'t seem to have worked so well. {city} doesn\'t have an army and the newcomers ' +
                                 'have been well supplied by their friends internationally.'
                             }
