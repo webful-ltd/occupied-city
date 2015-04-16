@@ -483,12 +483,12 @@ angular.module('occupied.services', [])
                 if (geometry !== false) {
                     geojson = {
                         data: {
-                            "type": "FeatureCollection",
-                            "features": [
+                            type: 'FeatureCollection',
+                            features: [
                                 {
-                                    "type": "Feature",
-                                    "properties": {"name": city.name},
-                                    "geometry": geometry
+                                    type: 'Feature',
+                                    properties: {name: city.name},
+                                    geometry: geometry
                                 }
                             ]
                         },
@@ -506,7 +506,7 @@ angular.module('occupied.services', [])
                         circle: {
                             type: 'circle',
                             weight: 2,
-                            color: '#9f9',
+                            color: colour,
                             radius: circleRadius,
                             latlngs: {lat: city.lat, lng: city.lng},
                             message: '<h3>An approximation of ' + city.name + '!</h3>' +
@@ -527,11 +527,35 @@ angular.module('occupied.services', [])
                     paths: paths,
                     geojson: geojson,
                     markers: markers
+                };
+            },
+
+            /**
+             * Given an existing markers array and a target number, get a new markers array
+             *
+             * @param {int}     requiredMarkers     Number of markers desired on completion
+             * @param {array}   markers             Starting marker set
+             * @param {float}   lat                 Latitude
+             * @param {float}   lng                 Longitude
+             * @param {number}  area                Area in km^2
+             * @param {object}  geojson             Geojson data, may be {}
+             * @returns {array}                     Smaller array of markers
+             */
+            getUpdatedMarkers: function(requiredMarkers, markers, lat, lng, area, geojson) {
+                if (requiredMarkers === markers.length) {
+                    return markers;
+                }
+
+                if (requiredMarkers > markers.length) {
+                    return this._addMarkers(requiredMarkers, markers, lat, lng, area, geojson);
+                }
+
+                if (requiredMarkers < markers.length) {
+                    return this._removeMarkers(requiredMarkers, markers);
                 }
             },
 
-            _buildMarkers: function(requiredMarkers, lat, lng, area, geojson) {
-                var markers = [];
+            _addMarkers: function(requiredMarkers, markers, lat, lng, area, geojson) {
                 var mapHelper = this;
                 var radius = Math.sqrt(area / Math.PI);
 
@@ -552,7 +576,7 @@ angular.module('occupied.services', [])
                                 markers.push(possMarker);
                             }
 
-                            if (attempts++ > requiredMarkers * 4) {
+                            if (attempts++ > requiredMarkers * 4 + 10) {
                                 console.log('Stopping marker generation - not finished after ' + attempts + ' attempts');
                                 break;
                             }
@@ -561,6 +585,14 @@ angular.module('occupied.services', [])
                 }
 
                 return markers;
+            },
+
+            _removeMarkers: function(requiredMarkers, markers) {
+                return markers.slice(0, requiredMarkers);
+            },
+
+            _buildMarkers: function (requiredMarkers, lat, lng, area, geojson) {
+                return this._addMarkers(requiredMarkers, [], lat, lng, area, geojson);
             },
 
             /**
