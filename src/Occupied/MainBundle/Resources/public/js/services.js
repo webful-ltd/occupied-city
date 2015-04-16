@@ -385,7 +385,7 @@ angular.module('occupied.services', [])
                                 'history': '"After the Palestinians won the upgraded U.N. rank of observer state in November 2012, Israel ' +
                                 'froze the tax monies and also announced plans for 3,000 homes in a highly sensitive area of the West Bank, ' +
                                 'as well as in annexed east Jerusalem, triggering a furious response from the international community." ' +
-                                '<a class="source" external href="http://english.alarabiya.net/en/News/middle-east/2015/01/05/U-S-opposes-Israel-s-freeze-on-Palestinian-tax-revenue.html">Source</a>'
+                                '<a class="source" external href="http://www.dailymail.co.uk/wires/afp/article-2896188/Israel-eyes-tougher-moves-Palestinian-tax-freeze.html">Daily Mail</a>'
                             }
                         ],
                         population: 4120000, // 2010 - http://en.wikipedia.org/wiki/Palestinian_territories#cite_note-105, presumably from US Census Bureau
