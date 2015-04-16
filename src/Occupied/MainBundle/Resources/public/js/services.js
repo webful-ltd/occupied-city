@@ -399,7 +399,7 @@ angular.module('occupied.services', [])
                         year: 2014,
                         events: [
                             {
-                                'virtual': 'The occupiers have decided to withold tax revenues from {city} again &ndash; this time as ' +
+                                'virtual': 'The occupiers have decided to withhold tax revenues from {city} again &ndash; this time as ' +
                                 'a result of a bid to attain the legal standing to challenge the occupation\'s injustices internationally.',
                                 'history': 'Palestinian tax was frozen (again) in January 2015 after the Palestinian government decided ' +
                                 'to join the International Criminal Court. ' +
