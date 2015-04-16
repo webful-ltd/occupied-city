@@ -49,6 +49,7 @@ assetic:
         jslibs:
             inputs:
                 - bundles/occupiedmain/bower/angular/angular.min.js
+                - bundles/occupiedmain/bower/angular-aria/angular-aria.min.js
                 - bundles/occupiedmain/bower/angular-ui-router/release/angular-ui-router.min.js
                 - bundles/occupiedmain/bower/leaflet/dist/leaflet.js
                 - bundles/occupiedmain/bower/angular-leaflet-directive/dist/angular-leaflet-directive.min.js

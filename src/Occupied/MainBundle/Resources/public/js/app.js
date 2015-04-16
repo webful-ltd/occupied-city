@@ -5,6 +5,7 @@ angular.module('occupied', [
     'occupied.directives',
     'occupied.filters',
     'occupied.services',
+    'ngAria',
     'ui.router',
     'leaflet-directive',
     'angulartics',
