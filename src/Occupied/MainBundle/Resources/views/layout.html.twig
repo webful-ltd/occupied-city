@@ -14,13 +14,14 @@
     {% endstylesheets %}
 </head>
 <body ng-cloak>
-    <h1>occupied.city</h1>
-
-    <ul id="menu">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="about">About</a></li>
-        <li><a ui-sref="contact">Contact</a></li>
-    </ul>
+    <div id="header">
+        <h1>occupied.city</h1>
+        <ul id="menu">
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="about">About</a></li>
+            <li><a ui-sref="contact">Contact</a></li>
+        </ul>
+    </div>
 
     <div ui-view id="main"></div>
 

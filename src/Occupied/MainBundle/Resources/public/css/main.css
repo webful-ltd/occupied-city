@@ -13,11 +13,23 @@ a {
     padding: 8px;
 }
 
+#header {
+    height: 30px;
+    background: #bbb;
+}
+
+h1 {
+    display: inline;
+    margin: 0;
+    padding: 8px;
+    color: #000;
+    font-family: monospace;
+}
+
 #menu {
     float: right;
     margin: 0;
     padding: 8px;
-    background: #bbb;
 }
 
 #menu li {
@@ -26,15 +38,6 @@ a {
 }
 
 #menu li a {
-    color: #000;
-    font-family: monospace;
-}
-
-h1 {
-    display: inline;
-    margin: 0;
-    padding: 8px;
-    background: #bbb;
     color: #000;
     font-family: monospace;
 }
