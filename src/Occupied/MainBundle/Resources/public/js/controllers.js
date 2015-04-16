@@ -128,6 +128,7 @@ angular.module('occupied.controllers', [])
             angular.extend($scope, MapHelper.buildLeafletData(city, $scope.refugees, $scope.settlements));
         };
 
+        $scope.defaults = {scrollWheelZoom: false};
         $scope.createMap();
         $scope.updateFigures();
     }])
