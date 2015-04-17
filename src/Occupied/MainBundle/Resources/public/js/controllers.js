@@ -55,6 +55,10 @@ angular.module('occupied.controllers', [])
 
             $scope.dayHeading = parseInt($scope.activeYear) + offset;
             $scope.refugees = 0;
+            $scope.settlers = 0;
+            $scope.settlements = 0;
+            $scope.settlerArea = 0;
+
             $scope.population = parseInt(current.population * populationRatio);
             if ('refugees' in current) {
                 $scope.refugees = parseInt(current.refugees * populationRatio);
@@ -62,7 +66,6 @@ angular.module('occupied.controllers', [])
             if ('settlers' in current) {
                 $scope.settlers = parseInt(current.settlers * populationRatio);
             }
-            $scope.settlements = 0;
             if ('settlements' in current) {
                 $scope.settlements = parseInt(current.settlements);
             }
