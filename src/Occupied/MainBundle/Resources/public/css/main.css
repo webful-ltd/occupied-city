@@ -63,6 +63,10 @@ h4 {
     margin: 0;
 }
 
+p {
+    clear: both;
+}
+
 button.next {
     border: solid 2px #090;
     background: #9f9;
@@ -72,8 +76,13 @@ button.back {
     border: solid 2px #000;
 }
 
+h4.city-title, h4.city-title a {
+    color: #ddd;
+    float: left;
+}
+
 .city-nav-container {
-    clear: both;
+    float: right;
 }
 
 button.city-nav {
@@ -120,6 +129,7 @@ a.source {
 .leaflet-container {
     max-width: 100%;
     width: 640px;
+    height: 480px;
     clear: left;
     float: left;
 }

@@ -1,10 +1,12 @@
-<p ng-hide="canGoBack">How would {[ ::city.name ]} be affected by an illegal occupation? We'll start today and
-    use the current population of ~{[ ::city.population | number ]}.</p>
+<h4 class="city-title"><a href="#" ng-click="restart()" title="Start over from {[ thisYear ]}">{[ ::city.name ]}</a></h4>
 
 <div class="city-nav-container">
     <button class="city-nav back" ng-click="back()" ng-disabled="!canGoBack" aria-label="Back" tabindex="100">&lt;</button>
     <button class="city-nav next" ng-click="progress()" ng-disabled="!canGoForward" aria-label="Forward" tabindex="1">&gt;&gt;</button>
 </div>
+
+<p ng-hide="canGoBack">How would {[ ::city.name ]} be affected by an illegal occupation? We'll start today and
+    use the current population of ~{[ ::city.population | number ]}.</p>
 
 <div class="leaflet-container">
     <leaflet defaults="defaults" center="center" markers="markers" paths="paths" geojson="geojson"></leaflet>
