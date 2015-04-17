@@ -450,7 +450,7 @@ angular.module('occupied.services', [])
         }
     }])
 
-    .factory('MapHelper', ['$filter', 'leafletData', function($filter, leafletData) {
+    .factory('MapHelper', ['$filter', '$window', 'leafletData', function($filter, $window, leafletData) {
         return {
             /**
              * Takes a city object and returns an object with 'center', 'paths' and 'geojson' keys suitable for using
@@ -518,11 +518,14 @@ angular.module('occupied.services', [])
 
                 var markers = this._buildMarkers(numMarkers, city.lat, city.lng, city.area, geojson);
 
+                // Adjust zoom level from either 11 or 10, for desktop and mobile sizes respectively
+                var baseZoom = $window.innerWidth > 700 ? 11 : 10;
+
                 return {
                     center: {
                         lat: city.lat,
                         lng: city.lng,
-                        zoom: Math.round(11 - Math.pow(city.area, 1/2.7) / 15)
+                        zoom: Math.round(baseZoom - Math.pow(city.area, 1/2.7) / 15)
                     },
                     paths: paths,
                     geojson: geojson,
