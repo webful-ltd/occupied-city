@@ -1,24 +1,22 @@
 <p ng-hide="canGoBack">How would {[ ::city.name ]} be affected by an illegal occupation? We'll start today and
     use the current population of ~{[ ::city.population | number ]}.</p>
-<p ng-show="canGoBack"><a href="#" ng-click="restart()">&lt; Back to start</a></p>
 
-<div class="vitals">
-<h4>{[ dayHeading ]}</h4>
-<p>Local population: <strong>{[ population | number ]}</strong></p>
-<p ng-show="refugees > 0">Refugees: <strong>{[ refugees | number ]}</strong></p>
-<p ng-show="settlers > 0">Settlers: <strong>{[ settlers | number ]}</strong></p>
-<p ng-show="settlements">Settlements: <strong>{[ settlements | number ]}</strong></p>
-<p ng-show="settlerArea">Settler controlled area: <strong>{[ settlerArea | number ]}km²</strong></p>
-</div>
-
-<div>
+<div class="city-nav-container">
     <button class="city-nav back" ng-click="back()" ng-disabled="!canGoBack" aria-label="Back" tabindex="100">&lt;</button>
     <button class="city-nav next" ng-click="progress()" ng-disabled="!canGoForward" aria-label="Forward" tabindex="1">&gt;&gt;</button>
 </div>
 
 <div class="leaflet-container">
-    <leaflet defaults="defaults" center="center" markers="markers" paths="paths" geojson="geojson"
-             height="480px" width="640px"></leaflet>
+    <leaflet defaults="defaults" center="center" markers="markers" paths="paths" geojson="geojson"></leaflet>
+</div>
+
+<div class="vitals">
+    <h4>{[ dayHeading ]}</h4>
+    <p>Local population: <strong>{[ population | number ]}</strong></p>
+    <p ng-show="refugees > 0">Refugees: <strong>{[ refugees | number ]}</strong></p>
+    <p ng-show="settlers > 0">Settlers: <strong>{[ settlers | number ]}</strong></p>
+    <p ng-show="settlements">Settlements: <strong>{[ settlements | number ]}</strong></p>
+    <p ng-show="settlerArea">Settler controlled area: <strong>{[ settlerArea | number ]}km²</strong></p>
 </div>
 
 <div ng-repeat="event in events" class="event-container">

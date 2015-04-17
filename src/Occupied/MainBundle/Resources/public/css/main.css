@@ -59,6 +59,7 @@ h2, h3, h4 {
 
 h4 {
     font-size: 200%;
+    padding: 20px 0 0 0;
     margin: 0;
 }
 
@@ -69,6 +70,10 @@ button.next {
 
 button.back {
     border: solid 2px #000;
+}
+
+.city-nav-container {
+    clear: both;
 }
 
 button.city-nav {
@@ -113,8 +118,10 @@ a.source {
 }
 
 .leaflet-container {
+    max-width: 100%;
     width: 640px;
     clear: left;
+    float: left;
 }
 
 .notes {
@@ -164,9 +171,29 @@ a.source {
     padding-left: 0;
 }
 
+@media (max-width: 1000px) {
+
+    .leaflet-container {
+        width: 100%;
+        height: 350px;
+    }
+
+    .vitals {
+        float: none;
+        clear: both;
+    }
+
+}
+
 @media (max-width: 700px) {
+
+    .leaflet-container {
+        height: 200px;
+    }
+
     .event.virtual, .event.history {
         float: none;
         max-width: 100%;
     }
+
 }
