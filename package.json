@@ -1,0 +1,20 @@
+{
+  "name": "Occupied.city",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/webful-ltd/occupied-city.git"
+  },
+  "version": "0.1.0",
+  "description": "Occupied City is an AngularJS and Symfony project for a web app that lets you visualise an occupation of your city.",
+  "main": "src/Occupied/MainBundle/Resources/public/js/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test/karma.sh; test/protractor.sh; test/phpunit.sh"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "protractor": "^2.0.0"
+  }
+}

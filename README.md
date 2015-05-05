@@ -48,6 +48,8 @@ Run PHP tests with `./test/phpunit.sh`.
 
 Run Karma tests by installing Karma 0.12.* and running `./test/karma.sh`.
 
+Run e2e tests by installing Node.js dev dependendies (`npm install`) and running `./test/protractor.sh`.
+
 AngularJS interpolation
 -----------------------
 Although little Twig interpolation is currently in use, to avoid confusion we give AngularJS the alternative
