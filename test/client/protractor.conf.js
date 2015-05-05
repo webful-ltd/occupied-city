@@ -13,7 +13,7 @@ exports.config = {
         'browserName': 'chrome'
     },
 
-    baseUrl: 'http://oc.localhost/app_dev.php/',
+    baseUrl: 'http://oc.localhost/',
 
     framework: 'jasmine2',
 
