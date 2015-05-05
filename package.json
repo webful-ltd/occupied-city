@@ -11,7 +11,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "test/karma.sh; test/protractor.sh; test/phpunit.sh"
+    "test": "test/all.sh"
   },
   "license": "MIT",
   "dependencies": {
