@@ -1,6 +1,6 @@
 Occupied City
 =============
-This is the codebase for Occupied City. It uses Symfony 2.6 on the server side and AngularJS 1.3 for the client.
+This is the codebase for Occupied City. It uses Symfony 2.7 on the server side and AngularJS 1.3 for the client.
 For now the server mostly just organises static resources and the site is largely an Angular app - we don't
 yet make serious use of Symfony or use the database.
 
