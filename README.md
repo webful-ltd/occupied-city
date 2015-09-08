@@ -75,7 +75,7 @@ This is the VirtualHost currently used for the local dev environment:
             RewriteRule ^/app_dev\.php/([^.]+)$ /app_dev.php/#!/$1 [R,NE]
 
             <Directory "/Users/noel/files/Dev/Occupied City/web">
-                    Options Includes Indexes FollowSymLinks MultiViews
+                    Options +Includes +Indexes +FollowSymLinks +MultiViews
                     AllowOverride None
                     Order allow,deny
                     Allow from all
