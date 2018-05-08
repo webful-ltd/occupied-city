@@ -7,6 +7,15 @@ yet make serious use of Symfony or use the database.
 The site lives at **[occupied.city](http://occupied.city)** and is released as
 [open source](https://github.com/webful-ltd/occupied-city) under the MIT Licence.
 
+Maintenance
+-----------
+To use Bower with the project in its current, rather dated state, it is
+necessary to switch to an old Node + npm. e.g.:
+
+    nvm use 4
+    bower update
+    nvm use 8 # or your normal version
+
 Issues
 ------
 Issues are [tracked on GitHub](https://github.com/webful-ltd/occupied-city/issues).
