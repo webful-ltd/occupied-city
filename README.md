@@ -14,7 +14,7 @@ necessary to switch to an old Node + npm. e.g.:
 
     nvm use 4
     bower update
-    nvm use 8 # or your normal version
+    nvm use 12 # or your normal version
 
 Issues
 ------
@@ -70,7 +70,7 @@ Apache virtual host configuration
 To use both Symfony and 'HTML5 mode' AngularJS routes (with no `#` prefix) requires an unusual vhost setup.
 
 For some background I wrote about this and the interpolation point above, you might want read
-[this blog post](http://noellh.com/blog/angularjs-symfony-harmony/).
+[this blog post](https://noellh.com/blog/angularjs-symfony-harmony/).
 
 This is the VirtualHost currently used for the local dev environment:
 

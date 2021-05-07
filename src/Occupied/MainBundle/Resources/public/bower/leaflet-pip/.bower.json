@@ -1,14 +1,14 @@
 {
   "name": "leaflet-pip",
   "homepage": "https://github.com/mapbox/leaflet-pip",
-  "version": "0.1.0",
-  "_release": "0.1.0",
+  "version": "1.1.0",
+  "_release": "1.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.0",
-    "commit": "d20e7baf4a1353957e989d896c1f8c21b083b349"
+    "tag": "v1.1.0",
+    "commit": "15c1e73aeaaaecde0c19b8d0497d98099e2a90f4"
   },
-  "_source": "git://github.com/mapbox/leaflet-pip.git",
-  "_target": "0.1.*",
+  "_source": "https://github.com/mapbox/leaflet-pip.git",
+  "_target": "1.*",
   "_originalSource": "leaflet-pip"
 }
