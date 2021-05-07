@@ -1,5 +1,5 @@
 app:
-    resource: @OccupiedMainBundle/Controller/
+    resource: "@OccupiedMainBundle/Controller/"
     type:     annotation
 
 fos_user_security:

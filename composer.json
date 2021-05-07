@@ -16,6 +16,10 @@
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "test/" },
+        "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
+    },
     "require": {
         "php": ">=7.4",
         "doctrine/doctrine-bundle": "^1.6",
