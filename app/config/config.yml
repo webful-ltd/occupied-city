@@ -98,3 +98,4 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Occupied\UserBundle\Entity\User
+    from_email: hi@webful.uk
