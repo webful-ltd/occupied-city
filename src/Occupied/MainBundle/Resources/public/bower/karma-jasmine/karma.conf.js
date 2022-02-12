@@ -1,14 +1,21 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     frameworks: ['jasmine'],
+    reporters: ['karma-jasmine'],
+
     files: [
-      'lib/jasmine.js',
       'src/*.js',
       'test/*.js'
     ],
 
     browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome'],
 
-    autoWatch: true
-  });
-};
+    autoWatch: true,
+
+    plugins: [
+      'karma-firefox-launcher',
+      'karma-chrome-launcher',
+      require.resolve('./')
+    ]
+  })
+}

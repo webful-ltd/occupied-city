@@ -9,12 +9,9 @@ The site lives at **[occupied.city](http://occupied.city)** and is released as
 
 Maintenance
 -----------
-To use Bower with the project in its current, rather dated state, it is
-necessary to switch to an old Node + npm. e.g.:
+To use Bower with the project in its current, rather dated state, and update things:
 
-    nvm use 4
     bower update
-    nvm use 12 # or your normal version
 
 Issues
 ------
