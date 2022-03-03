@@ -12,6 +12,7 @@ require('leaflet.awesome-markers');
 require('leaflet-pip');
 
 require('../css/main.css')
+require('leaflet.awesome-markers/dist/leaflet.awesome-markers.css')
 
 require('./controllers')
 require('./directives')

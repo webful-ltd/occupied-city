@@ -1,5 +1,7 @@
 'use strict';
 
+import * as leafletPip from 'leaflet-pip';
+
 angular.module('occupied.services', [])
 
     .value('basePopulation', 1810037) // 1946 total, http://www.jewishvirtuallibrary.org/jsource/Society_&_Culture/israel_palestine_pop.html

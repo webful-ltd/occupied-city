@@ -5,6 +5,13 @@ This is the codebase for Occupied City. It uses AngularJS 1.8.
 The site lives at **[occupied.city](https://occupied.city)** and is released as
 [open source](https://github.com/webful-ltd/occupied-city) under the MIT Licence.
 
+Try it out
+----------
+
+* `npm i`
+* `npm run build:dev`
+* Visit a web server pointed to `./web`
+
 Issues
 ------
 Issues are [tracked on GitHub](https://github.com/webful-ltd/occupied-city/issues).
@@ -33,6 +40,8 @@ As Flickr shapes were even more noticeably off for at least some countries, we u
 Dependencies
 ------------
 Client libraries managed with npm.
+
+### Live builds
 
 There is no CI for now. To build live after uploading `src` files:
 
