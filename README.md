@@ -1,17 +1,9 @@
 Occupied City
 =============
-This is the codebase for Occupied City. It uses Symfony 2.7 on the server side and AngularJS 1.3 for the client.
-For now the server mostly just organises static resources and the site is largely an Angular app - we don't
-yet make serious use of Symfony or use the database.
+This is the codebase for Occupied City. It uses AngularJS 1.8.
 
-The site lives at **[occupied.city](http://occupied.city)** and is released as
+The site lives at **[occupied.city](https://occupied.city)** and is released as
 [open source](https://github.com/webful-ltd/occupied-city) under the MIT Licence.
-
-Maintenance
------------
-To use Bower with the project in its current, rather dated state, and update things:
-
-    bower update
 
 Issues
 ------
@@ -40,53 +32,31 @@ As Flickr shapes were even more noticeably off for at least some countries, we u
 
 Dependencies
 ------------
-Server dependencies are managed with Composer and client libraries with Bower.
+Client libraries managed with npm.
+
+There is no CI for now. To build live:
+
+    `npm run build`
+
+Webpack'd output is placed in and served from `./web`.
 
 Requirements
 ------------
-* PHP 5.4+
-* MySQL 5.5+
-* Apache 2.2+
+* Node 14+ for build
+* Apache 2.4+
 
 Tests
 -----
-Run PHP tests with `./test/phpunit.sh`.
+Tests were few before and e2e's relied on the now-deprecated Protractor framework.
 
-Run Karma tests by installing Karma 0.12.* and running `./test/karma.sh`.
-
-Run e2e tests by installing Node.js dev dependendies (`npm install`) and running `./test/protractor.sh`.
-
-AngularJS interpolation
------------------------
-Although little Twig interpolation is currently in use, to avoid confusion we give AngularJS the alternative
-interpolation brackets `{[ ... ]}`. This allows AngularJS and Twig to be used side by side, e.g. in
-`layout.html.twig`.
+In the interests of keeping the app maintainable and secure in the medium term without burning hours on this, tests were therefore removed in 2022. We should write new ones if we want to do significant work on the app again.
 
 Apache virtual host configuration
 ---------------------------------
-To use both Symfony and 'HTML5 mode' AngularJS routes (with no `#` prefix) requires an unusual vhost setup.
-
-For some background I wrote about this and the interpolation point above, you might want read
-[this blog post](https://noellh.com/blog/angularjs-symfony-harmony/).
-
-This is the VirtualHost currently used for the local dev environment:
-
-    <VirtualHost *:80>
-            DocumentRoot "/Users/noel/files/Dev/Occupied City/web"
-            ServerName oc.localhost
-            ErrorLog "/Users/noel/files/Dev/Occupied City/app/logs/apache-errors.log"
-
-            RewriteEngine on
-            # Rewrite Angular routes to PHP index file to allow html5 state links
-            RewriteRule ^/app_dev\.php/([^.]+)$ /app_dev.php/#!/$1 [R,NE]
-
-            <Directory "/Users/noel/files/Dev/Occupied City/web">
-                    Options +Includes +Indexes +FollowSymLinks +MultiViews
-                    AllowOverride None
-                    Order allow,deny
-                    Allow from all
-            </Directory>
-    </VirtualHost>
+To use 'HTML5 mode' requires a special vhost setup. This is
+copied at build time from `src` and the path depends on
+whether you use `build:dev` (currently hard-coded to Noel's
+local file structure) or `build`.
 
 Possible sources
 ----------------
