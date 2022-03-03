@@ -34,8 +34,9 @@ Dependencies
 ------------
 Client libraries managed with npm.
 
-There is no CI for now. To build live:
+There is no CI for now. To build live after uploading `src` files:
 
+    `npm i`
     `npm run build`
 
 Webpack'd output is placed in and served from `./web`.
