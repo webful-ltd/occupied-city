@@ -1,3 +1,0 @@
-app:
-    resource: "@OccupiedMainBundle/Controller/"
-    type:     annotation

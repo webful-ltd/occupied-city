@@ -1,22 +1,45 @@
 {
-  "name": "Occupied.city",
+  "name": "occupied.city",
   "repository": {
     "type": "git",
     "url": "git://github.com/webful-ltd/occupied-city.git"
   },
-  "version": "0.1.0",
-  "description": "Occupied City is an AngularJS and Symfony project for a web app that lets you visualise an occupation of your city.",
-  "main": "src/Occupied/MainBundle/Resources/public/js/app.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "test/all.sh"
-  },
   "license": "MIT",
+  "homepage": "https://occupied.city",
+  "version": "1.0.0",
+  "authors": [
+    "Noel Light-Hilary <noel@noellh.com>"
+  ],
+  "description": "Occupied City is an AngularJS web app that lets you visualise an occupation of your city.",
+  "main": "src/js/app.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js"
+  },
   "dependencies": {
-    "bower": "^1.8.13",
-    "global": "^4.3.2",
-    "protractor": "^2.0.0"
+    "angular": "^1.8",
+    "angular-aria": "^1.8",
+    "angular-leaflet-directive": "~0.10.0",
+    "angular-ui-router": "^1.0",
+    "angulartics-google-analytics": "~0.5.0",
+    "font-awesome": "^4.3",
+    "leaflet": "~0.7.7",
+    "leaflet-pip": "^1.1.0",
+    "leaflet.awesome-markers": "^2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.8",
+    "angulartics": "^1.6.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.6.0",
+    "karma-jasmine": "^4.0.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
