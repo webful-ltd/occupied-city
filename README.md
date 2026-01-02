@@ -61,7 +61,7 @@ npm run build
 Webpack'd output is placed in and served from `./web`.
 
 ## Requirements
-* Node 14+ for build/dev
+* Node 20+ for build/dev
 
 ## Tests
 Tests were removed in 2022.
