@@ -1,66 +1,81 @@
-'use strict';
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
 
-require('angular');
-require('angular-aria');
-require('angular-leaflet-directive');
-require('angular-ui-router')
-require('angulartics');
-require('angulartics-google-analytics');
-require('leaflet');
-require('leaflet/dist/leaflet.css');
-require('leaflet.awesome-markers');
-require('leaflet-pip');
+// Import Leaflet CSS
+import 'leaflet/dist/leaflet.css'
+import 'leaflet.awesome-markers'
+import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css'
+import '../css/main.css'
 
-require('../css/main.css')
-require('leaflet.awesome-markers/dist/leaflet.awesome-markers.css')
+// Fix default Leaflet marker icon paths under webpack
+import * as Leaflet from 'leaflet'
+import markerIcon2xUrl from 'leaflet/dist/images/marker-icon-2x.png'
+import markerIconUrl from 'leaflet/dist/images/marker-icon.png'
+import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png'
 
-require('./controllers')
-require('./directives')
-require('./filters')
-require('./services')
+const L = Leaflet.default || Leaflet
+if (L.Icon && L.Icon.Default) {
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2xUrl,
+    iconUrl: markerIconUrl,
+    shadowUrl: markerShadowUrl
+  })
+}
 
-angular.module('occupied', [
-    'occupied.controllers',
-    'occupied.directives',
-    'occupied.filters',
-    'occupied.services',
-    'ngAria',
-    'ui.router',
-    'leaflet-directive',
-    'angulartics',
-    'angulartics.google.analytics'
-])
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
-        $stateProvider
-            .state('home', {
-                url: '/',
-                controller: 'HomeController',
-                templateUrl: '/partials/home.html'
-            })
-            .state('contact', {
-                url: '/contact',
-                controller: 'ContactController',
-                templateUrl: '/partials/contact.html',
-                data: { pageTitle: 'Contact Us' }
-            })
-            .state('about', {
-                url: '/about',
-                controller: 'AboutController',
-                templateUrl: '/partials/about.html',
-                data: { pageTitle: 'About' }
-            })
-            .state('city', {
-                url: '/:city',
-                controller: 'CityController',
-                templateUrl: '/partials/city.html'
-            })
-            .state('city.year', {   // child of `city`
-                url: '/:year',      // this URL piece follows `city`'s
-                controller: 'CityController',
-                templateUrl: '/partials/city.html'
-            })
-        ;
+// Import components
+import Home from './components/Home.vue'
+import City from './components/City.vue'
+import About from './components/About.vue'
+import Contact from './components/Contact.vue'
 
-        $urlRouterProvider.otherwise('/');
-        $locationProvider.html5Mode(true).hashPrefix('!');
-    }]);
+// Setup router
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
+      meta: { pageTitle: 'Contact Us' }
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+      meta: { pageTitle: 'About' }
+    },
+    {
+      path: '/:city/:year?',
+      name: 'city',
+      component: City
+    }
+  ]
+})
+
+// Update page title on route change
+router.afterEach((to) => {
+  document.title = to.meta.pageTitle
+    ? `${to.meta.pageTitle} - Occupied City`
+    : 'Occupied City'
+})
+
+// Create and mount app
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
+
+// Google Analytics
+window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) }
+ga.l = +new Date()
+ga('create', 'UA-44087370-5', 'auto')
+ga('send', 'pageview')
+
+router.afterEach(() => {
+  ga('send', 'pageview')
+})

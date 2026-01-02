@@ -1,77 +1,71 @@
-Occupied City
-=============
-This is the codebase for Occupied City. It uses AngularJS 1.8.
+# Occupied City
 
-The site lives at **[occupied.city](https://occupied.city)** and is released as
+This is the codebase for Occupied City. It runs on Vue 3 (see `src/js/App.vue`).
+
+The site lives at **[OccupiedCity.webful.uk](https://occupiedcity.webful.uk)** and is released as
 [open source](https://github.com/webful-ltd/occupied-city) under the MIT Licence.
 
-Try it out
-----------
+## Try it out (local dev server)
 
-* `npm i`
-* `npm run build:dev`
-* Visit a web server pointed to `./web`
+```bash
+npm i
+npm run dev
+```
 
-Issues
-------
+This starts a local dev server (no Apache needed).
+
+If you want it to open your browser automatically:
+
+```bash
+npm run dev:open
+```
+
+If it doesn’t open automatically (or you used `dev`), visit:
+
+- http://localhost:8080/
+
+## Build
+
+```bash
+npm run build:dev
+```
+
+Webpack output is written to `./web`.
+
+## Issues
 Issues are [tracked on GitHub](https://github.com/webful-ltd/occupied-city/issues).
 
-Mapping
--------
-We currently use [Leaflet](http://leafletjs.com/) for maps with
-[angular-leaflet-directive](https://github.com/tombatossals/angular-leaflet-directive). Tiles come from the default
-provider, OpenStreetMap.
+# Mapping
+We currently use [Leaflet](http://leafletjs.com/) for maps.
 
 ### City outlines
 We're using [Flickr Shapefiles](http://code.flickr.net/2011/01/08/flickr-shapefiles-public-dataset-2-0/) locality data
-to produce approximate outlines for each included city. Currently the coordinates are manually copy/pasted from their
- GeoJSON file and included in our service data. Cities without a `coords` key will use their area and draw a circle
- instead of the real city shape.
-
-Some of the resulting shapes are a slightly weird representation of the city, but I've not yet found a better data
-source covering the whole world with enough detail to include cities the size of (say) Liverpool. It would be
-good to stick to one consistent source and process for all cities. Do you know of a better place to get outline GeoJSON?
-Let me know!
+to produce approximate outlines for each included city.
 
 ### Country outlines
 As Flickr shapes were even more noticeably off for at least some countries, we use
 [these approximations](https://github.com/johan/world.geo.json) instead.
 
-Dependencies
-------------
+## Dependencies
 Client libraries managed with npm.
 
 ### Live builds
 
 There is no CI for now. To build live after uploading `src` files:
 
-    `npm i`
-    `npm run build`
+```bash
+npm i
+npm run build
+```
 
 Webpack'd output is placed in and served from `./web`.
 
-Requirements
-------------
-* Node 14+ for build
-* Apache 2.4+
+## Requirements
+* Node 14+ for build/dev
 
-Tests
------
-Tests were few before and e2e's relied on the now-deprecated Protractor framework.
+## Tests
+Tests were removed in 2022.
 
-In the interests of keeping the app maintainable and secure in the medium term without burning hours on this, tests were therefore removed in 2022. We should write new ones if we want to do significant work on the app again.
-
-Apache virtual host configuration
----------------------------------
-To use 'HTML5 mode' requires a special vhost setup. This is
-copied at build time from `src` and the path depends on
-whether you use `build:dev` (currently hard-coded to Noel's
-local file structure) or `build`.
-
-Possible sources
-----------------
-Some potential sources for additional research & data:
-
-* [Visualizing Palestine settlement infographic](http://visualizingpalestine.org/visuals/palestinian-israeli-peace-talks-settlements-oslo)
-* [UNRWA Barrier Monitoring Unit](http://www.unrwa.org/newsroom/features/barrier-monitoring-unit?id=908) -
-    We could show wall construction over time?
+## Apache virtual host configuration
+Apache is no longer required for local development.
+If you deploy to Apache and want HTML5-history routing, you’ll still need the equivalent rewrite rules.
