@@ -8,6 +8,21 @@ import 'leaflet.awesome-markers'
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css'
 import '../css/main.css'
 
+// Fix default Leaflet marker icon paths under webpack
+import * as Leaflet from 'leaflet'
+import markerIcon2xUrl from 'leaflet/dist/images/marker-icon-2x.png'
+import markerIconUrl from 'leaflet/dist/images/marker-icon.png'
+import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png'
+
+const L = Leaflet.default || Leaflet
+if (L.Icon && L.Icon.Default) {
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2xUrl,
+    iconUrl: markerIconUrl,
+    shadowUrl: markerShadowUrl
+  })
+}
+
 // Import components
 import Home from './components/Home.vue'
 import City from './components/City.vue'

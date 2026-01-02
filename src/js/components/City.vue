@@ -149,7 +149,7 @@ export default {
 
       // (Re)create base shape
       if (geojson) {
-        const geoJsonFactory = L.geoJson || L.geoJSON
+        const geoJsonFactory = L.geoJSON || L.geoJson
         this.geojsonLayer = geoJsonFactory.call(L, geojson, {
           style: {
             fillColor: colour,
