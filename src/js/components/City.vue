@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import L from 'leaflet'
+import * as Leaflet from 'leaflet'
 import 'leaflet.awesome-markers'
 
 import { interpolate, formatNumber } from '../utils'
@@ -111,6 +111,7 @@ export default {
     ensureMap() {
       if (this.map || !this.$refs.mapEl) return
 
+      const L = Leaflet.default || Leaflet
       this.map = L.map(this.$refs.mapEl, { scrollWheelZoom: false })
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -121,6 +122,8 @@ export default {
     },
 
     redrawMap() {
+      const L = Leaflet.default || Leaflet
+
       this.ensureMap()
       if (!this.map || !this.city) return
 
@@ -146,7 +149,8 @@ export default {
 
       // (Re)create base shape
       if (geojson) {
-        this.geojsonLayer = L.geoJSON(geojson, {
+        const geoJsonFactory = L.geoJson || L.geoJSON
+        this.geojsonLayer = geoJsonFactory.call(L, geojson, {
           style: {
             fillColor: colour,
             weight: 2,
@@ -188,6 +192,8 @@ export default {
     },
 
     addMarkersToMap() {
+      const L = Leaflet.default || Leaflet
+
       if (!this.markersLayer) return
       this.markersLayer.clearLayers()
 
