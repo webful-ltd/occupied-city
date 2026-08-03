@@ -51,7 +51,7 @@ Client libraries managed with npm.
 
 ### Live builds
 
-There is no CI for now. To build live after uploading `src` files:
+There is no CI for now. To build live after uploading `src` and `package*` files:
 
 ```bash
 npm i
